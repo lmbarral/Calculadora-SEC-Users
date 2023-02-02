@@ -6,6 +6,7 @@
     width: 100%;
     color: #fff;
     padding-left: 2rem;
+    position: relative;
 }
 
 .Footer-style {
@@ -73,7 +74,7 @@ code {
     display: flex;
 }
 
-.Footer-a:hover {
+.Footer-a:hover, .Footer-b:hover {
     color: white;
 }
 

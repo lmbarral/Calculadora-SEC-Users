@@ -1,6 +1,6 @@
 const Math = (form) => {
 
-    console.log({form})
+    //console.log({form})
 
     var sBase = 0, m = 0;
     var params = {}, neto = {};
@@ -1181,12 +1181,12 @@ const Math = (form) => {
 
     if(!Number(base)){ sBase = SALARIOS[category][month].salarioBase} else { sBase = Number(base)};
     m = SALARIOS[category][month].mes;
-    console.log(m)
+    //console.log(m)
     params = {sBase, ant, jornada, os, extras50, extras100, m}
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;
-    console.log(neto)
+    //console.log(neto)
     return neto;
 }
 

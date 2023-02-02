@@ -1,3 +1,7 @@
+.Nav-Style {
+    position: relative;
+}
+
 .top-nav {
     background-color: white;
     max-height: 1.5rem;
@@ -87,5 +91,12 @@ li {
 
     .top-nav-short {
         display: contents;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .mid-nav {
+        font-size: .7rem;
+        padding-top: .5rem;
     }
 }

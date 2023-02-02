@@ -6,10 +6,12 @@ import Math from './modules/Math/Math';
 import Nav from './modules/NavBar/Nav';
 import Footer from './modules/Footer/Footer';
 import PreCalculator from './modules/PreCalculator/PreCalculator';
+import Error from './modules/Error/Error';
 
 function App() {
   const[neto, setNeto] = useState({});
   const[st, setSt] = useState(true);
+  const[error, setError] = useState(false);
 
   const onSubmit = form => {
     setNeto(Math(form));
@@ -17,15 +19,22 @@ function App() {
 
   const pState = state => {
     setSt(state);
-    console.log(st);
+    //console.log(st);
   }
+
+  const pError = error => {
+    setError(error);
+  }
+
+  //console.log(error);
 
   return (
     <div className="App">
       <>
         <Nav />
         <PreCalculator />
-        <Calculator submitSearch={onSubmit} passState={pState}/>
+        {error && st && <Error />}
+        <Calculator submitSearch={onSubmit} passState={pState} pError={pError}/>
         {!st && <ShowData neto={neto}/>}
         <Footer />
       </>

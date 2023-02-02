@@ -1,10 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import './Calculator.css';
-import Math from "../Math/Math";
-import ShowData from "../ShowData/ShowData";
 
-const Calculator = ({submitSearch, passState}) => {
+const Calculator = ({submitSearch, passState, pError}) => {
 
     const [category, setCategory] = useState("");
     const [month, setMonth] = useState("");
@@ -16,11 +14,17 @@ const Calculator = ({submitSearch, passState}) => {
     const [base, setBase] = useState("");
     const [data, setData] = useState({});
     const [state, setState] = useState(false);
+    const [error, setError] = useState(true);
 
     const handleSubmit = e => {
         e.preventDefault();
         if(!data || data === undefined) return;
-        if(!category || !month || !ant || !jornada || category === "" || month === "" || ant === "" || jornada === "") return alert("Recordá que los campos \"Categoría\", \"Mes de Cálculo\", \"Antigüedad\" y \"Jornada\" deben estar completos para utilizar la calculadora.");
+        if(!category || !month || !ant || !jornada || category === "" || month === "" || ant === "" || jornada === "") {
+            pError(error);
+            return;
+        }
+        setError(false);
+        pError(error);
         setData({category, month, ant, jornada, os, extras50, extras100, base});
         submitSearch(data);
         if(state === true) return;
@@ -33,17 +37,21 @@ const Calculator = ({submitSearch, passState}) => {
     }
 
     const handleErrase = () => {
+        if(category === "" || month === "" || ant === "" || jornada === "") return;
         setCategory("");
         setMonth("");
         setAnt("");
         setJornada("");
-        setExtras50(0);
-        setExtras100(0);
+        setExtras50("");
+        setExtras100("");
         setBase("");
         if(data === "") return;
         setData("");
         setState(current => !current);
-        passState(state)
+        passState(state);
+        setError(false);
+        pError(error);
+        setError(current => !current);
     }
 
     return(
@@ -62,7 +70,7 @@ const Calculator = ({submitSearch, passState}) => {
                                 autoFocus
                                 value={category}
                                 onChange={(e) => { setCategory(e.target.value); handleChange() }}>
-                                    <option defaultValue={"Elegí una opción"}>Elegí una opción</option>
+                                    <option defaultValue={""}>Elegí una opción</option>
                                     <option value="11" >Maestranza A</option>
                                     <option value="12" >Maestranza B</option>
                                     <option value="13" >Maestranza C</option>
@@ -92,12 +100,12 @@ const Calculator = ({submitSearch, passState}) => {
                                 class="form-select text-center"
                                 type="text"
                                 name="month"
-                                required
+                                //required
                                 autoFocus
                                 value={month}
                                 onChange={(e) => { setMonth(e.target.value); handleChange() }}>
-                                    <option defaultValue={"Elegí una opción"}>Elegí una opción</option>
-                                    <option value="202304" >Mar.2023</option>
+                                    <option defaultValue={""}>Elegí una opción</option>
+                                    <option value="202304" >Abr.2023</option>
                                     <option value="202303" >Mar.2023</option>
                                     <option value="202302" >Feb.2023</option>
                                     <option value="202301" >Ene.2023</option>
@@ -119,10 +127,10 @@ const Calculator = ({submitSearch, passState}) => {
                                 type="number"
                                 name="ant"
                                 required
-                                autoFocus
+                                //autoFocus
                                 value={ant}
                                 onChange={(e) => { setAnt(e.target.value); handleChange() }}>
-                                    <option defaultValue={"Elegí una opción"}>Elegí una opción</option>
+                                    <option defaultValue={""}>Elegí una opción</option>
                                     <option value="0.00">0</option>
                                     <option value="0.01">1</option>
                                     <option value="0.02">2</option>
@@ -187,10 +195,10 @@ const Calculator = ({submitSearch, passState}) => {
                                 type="number"
                                 name="jornada"
                                 required
-                                autoFocus
+                                //autoFocus
                                 value={jornada}
                                 onChange={(e) => { setJornada(e.target.value); handleChange() }}>
-                                    <option defaultValue={"Elegí una opción"}>Elegí una opción</option>
+                                    <option defaultValue={""}>Elegí una opción</option>
                                     <option value={4} >1/2 jornada (4hs)</option>
                                     <option value={5} >5 hs.</option>
                                     <option value={5.333} >2/3 Jornada</option>
@@ -207,7 +215,7 @@ const Calculator = ({submitSearch, passState}) => {
                                 <input type="number"
                                 class="form-control text-center"
                                 id="extras50"
-                                autoFocus
+                                //autoFocus
                                 placeholder="Cant. de Horas Extras"
                                 value={extras50}
                                 onChange={(e) => { setExtras50(e.target.value); handleChange() }}></input>
@@ -217,7 +225,7 @@ const Calculator = ({submitSearch, passState}) => {
                                 <input type="number"
                                 class="form-control text-center"
                                 id="extras100"
-                                autoFocus
+                                //autoFocus
                                 placeholder="Cant. de Horas Extras"
                                 value={extras100}
                                 onChange={(e) => { setExtras100(e.target.value); handleChange() } }></input>
@@ -233,7 +241,7 @@ const Calculator = ({submitSearch, passState}) => {
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="submit" onClick={handleChange}>Simular</button>
+                        <button class="btn btn-success" type="submit" onClick={handleChange}>Simular</button>
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
