@@ -7,6 +7,18 @@
     padding: 1rem;
 }
 
+.table {
+    margin-top: 1rem;
+    border-color: #004c97;
+    border-radius: .5rem;
+    --bs-table-bg: white;
+    color: #004c97;
+}
+
+.Title {
+    text-align: left;
+}
+
 .row {
     padding: .5rem;
 }
@@ -18,65 +30,34 @@
     margin: .5rem;
 }
 
-.select {
-    padding: .2rem;
+.Spacer {
+    --bs-table-bg: #004c97;
 }
 
-h4 { 
-    font-size: 1.2rem;
-    color: #ffffff;
-}
-
-h3 {
-    font-size: 1.4rem;
-    color: #ffffff;
-}
-
-.d-grid {
-    margin: 1rem;
-}
-
-.btn-primary {
-    --bs-btn-bg: #004c97;
+.Col-left {
+    text-align: left;
 }
 
 .neto {
-    background: #ffffff;
-}
-
-.accordion { 
-    margin: .5rem;
-}
-
-.accordion-button  {
     background-color: #004c97;
+    border-radius: .5rem;
+    padding: 1rem;
 }
 
-.accordion-button[aria-expanded = "true"]  {
-    background-color: #004c97;
+.First-col {
+    align-items: center;
 }
 
-.accordion-button {
-    font-size: 1.2rem;
-    color: #ffffff;
-    height: 60px;
+.Second-col {
+    width: 3%;
 }
 
-.accordion-button[aria-expanded = "true"] {
-    font-size: 1.2rem;
-    color: #ffffff;
+.Third-col {
+    width: 20%;
 }
 
-.accordion-icon {
-    color: white;
-}
-
-.Rem {
-    padding: -10rem;
-}
-
-th {
-    width: 50%;
+.Fourth-col {
+    width: 20%;
 }
 
 @media Screen and (max-width: 833px) {

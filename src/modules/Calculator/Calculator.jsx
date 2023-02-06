@@ -2,13 +2,15 @@ import React from "react";
 import { useState } from "react";
 import './Calculator.css';
 
-const Calculator = ({submitSearch, passState, pError}) => {
+const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
 
     const [category, setCategory] = useState("");
     const [month, setMonth] = useState("");
     const [ant, setAnt] = useState("");
     const [jornada, setJornada] = useState("");
     const os = 0.03;
+    const [feriados, setFeriado] = useState("");
+    const [vacaciones, setVacaciones] = useState("");
     const [extras50, setExtras50] = useState("");
     const [extras100, setExtras100] = useState("");
     const [base, setBase] = useState("");
@@ -25,7 +27,8 @@ const Calculator = ({submitSearch, passState, pError}) => {
         }
         setError(false);
         pError(error);
-        setData({category, month, ant, jornada, os, extras50, extras100, base});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones});
+        //console.log(data);
         submitSearch(data);
         if(state === true) return;
         setState(current => !current);
@@ -33,7 +36,7 @@ const Calculator = ({submitSearch, passState, pError}) => {
     }
 
     const handleChange = () => {
-        setData({category, month, ant, jornada, os, extras50, extras100, base});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones});
     }
 
     const handleErrase = () => {
@@ -45,6 +48,8 @@ const Calculator = ({submitSearch, passState, pError}) => {
         setExtras50("");
         setExtras100("");
         setBase("");
+        setFeriado("");
+        setVacaciones("");
         if(data === "") return;
         setData("");
         setState(current => !current);
@@ -54,9 +59,17 @@ const Calculator = ({submitSearch, passState, pError}) => {
         setError(current => !current);
     }
 
+    const handleClosure = () => {
+        handleClick1(false);
+        handleErrase();
+    }
+
     return(
         <section id="calculator">
             <div className="Calculator">
+                <div className="Pre-Calculator-title">
+                    <h2>CALCULADORA DE SUELDO SEC</h2>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <div class="container text-center">
                         <div class="row">
@@ -206,6 +219,73 @@ const Calculator = ({submitSearch, passState, pError}) => {
                                     <option value={8}>Jornada Completa (8hs)</option>
                                 </select>
                             </div>
+                            <div class="col">
+                                <h4>Feriados Trabajados</h4>
+                                <select
+                                class="form-select text-center"
+                                type="number"
+                                name="feriados"
+                                required
+                                //autoFocus
+                                value={feriados}
+                                onChange={(e) => { setFeriado(e.target.value); handleChange() }}>
+                                    <option defaultValue={""}>Elegí una opción</option>
+                                    <option value={1} >1</option>
+                                    <option value={2} >2</option>
+                                    <option value={3} >3</option>
+                                    <option value={4} >4</option>
+                                    <option value={5}>5</option>
+                                    <option value={6} >6</option>
+                                    <option value={7} >7</option>
+                                    <option value={8} >8</option>
+                                    <option value={9} >9</option>
+                                    <option value={10}>10</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <h4>Días de Vacaciones</h4>
+                                <select
+                                class="form-select text-center"
+                                type="number"
+                                name="vacaciones"
+                                required
+                                //autoFocus
+                                value={vacaciones}
+                                onChange={(e) => { setVacaciones(e.target.value); handleChange() }}>
+                                    <option defaultValue={""}>Elegí una opción</option>
+                                    <option value={1} >1</option>
+                                    <option value={2} >2</option>
+                                    <option value={3} >3</option>
+                                    <option value={4} >4</option>
+                                    <option value={5}>5</option>
+                                    <option value={6} >6</option>
+                                    <option value={7} >7</option>
+                                    <option value={8} >8</option>
+                                    <option value={9} >9</option>
+                                    <option value={10}>10</option>
+                                    <option value={1} >11</option>
+                                    <option value={2} >12</option>
+                                    <option value={3} >13</option>
+                                    <option value={4} >14</option>
+                                    <option value={5}>15</option>
+                                    <option value={6} >16</option>
+                                    <option value={7} >17</option>
+                                    <option value={8} >18</option>
+                                    <option value={9} >19</option>
+                                    <option value={10}>20</option>
+                                    <option value={1} >21</option>
+                                    <option value={2} >22</option>
+                                    <option value={3} >23</option>
+                                    <option value={4} >24</option>
+                                    <option value={5}>25</option>
+                                    <option value={6} >26</option>
+                                    <option value={7} >27</option>
+                                    <option value={8} >28</option>
+                                    <option value={9} >29</option>
+                                    <option value={10}>30</option>
+                                    <option value={10}>30</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="container text-center">
@@ -245,6 +325,9 @@ const Calculator = ({submitSearch, passState, pError}) => {
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="reset" onClick={handleClosure}>Cerrar Calculadora</button>
                     </div>
                 </form>
             </div>

@@ -15,13 +15,7 @@ const Error = () => {
                     </div>
                     <div class="col-9 bg-transparent">
                         <div className="text">
-                            <p className="Error-text">Recordá que los siguientes campos deben completarse para realizar el cálculo deseado:</p>
-                            <div className="req-list">
-                                <div className="List">CATEGORÍA</div>
-                                <div className="List">MES DE CÁLCULO</div>
-                                <div className="List">AÑOS DE ANTIGÜEDAD</div>
-                                <div className="List">JORNADA</div>
-                            </div>
+                            <p className="Error-text">Los campos CATEGORÍA, MES DE CÁLCULO, AÑOS DE ANTIGÜEDAD y JORNADA deben completarse para realizar el cálculo.</p>
                         </div>
                     </div>
                 </div>

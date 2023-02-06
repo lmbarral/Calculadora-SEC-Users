@@ -3,40 +3,27 @@
     border: 2px solid;
     border-color: #ff3d3d;
     border-radius: 1rem;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 35%;
+    margin-right: 35%;
     padding: .5rem;
     margin-bottom: 2%;
 }
 
 .Error-text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: whitesmoke;
-}
-
-.req-list {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    border: .5rem solid whitesmoke;
-    border-radius: 1rem;
-}
-
-.List{
-    font-size: 1.5rem;
     color: whitesmoke;
 }
 
 .Exclamation {
     color: #ff3d3d;
-    font-size: 12rem;
+    font-size: 6rem;
 }
 
 @media Screen and (max-width: 833px) {
     .Error-style {
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 20%;
+        margin-right: 20%;
         padding: 1rem;
     }
 }

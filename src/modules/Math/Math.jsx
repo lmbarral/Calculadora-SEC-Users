@@ -2,7 +2,7 @@ const Math = (form) => {
 
     //console.log({form})
 
-    var sBase = 0, m = 0;
+    var sBase = 0, m = 0, agui = false;
     var params = {}, neto = {};
 
     const SALARIOS = {
@@ -17,7 +17,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 87188.65,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 87188.65,
@@ -41,7 +42,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 87188.65,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 87188.65,
@@ -71,7 +73,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 87441.01,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 87441.01,
@@ -95,7 +98,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 87441.01,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 87441.01,
@@ -125,7 +129,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88325.25,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88325.25,
@@ -149,7 +154,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88325.25,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88325.25,
@@ -179,7 +185,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88135.92,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88135.92,
@@ -203,7 +210,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88135.92,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88135.92,
@@ -233,7 +241,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88515.16,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88515.16,
@@ -257,7 +266,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88515.16,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88515.16,
@@ -287,7 +297,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88894.10,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88894.10,
@@ -311,7 +322,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88894.10,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88894.10,
@@ -341,7 +353,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 90031.28,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 90031.28,
@@ -365,7 +378,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 90031.28,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 90031.28,
@@ -395,7 +409,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 90978.63,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 90978.63,
@@ -419,7 +434,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 90978.63,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 90978.63,
@@ -449,7 +465,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 92368.44,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 92368.44,
@@ -473,7 +490,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 92368.44,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 92368.44,
@@ -503,7 +521,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88451.66,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88451.66,
@@ -527,7 +546,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88451.66,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88451.66,
@@ -557,7 +577,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88894.07,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88894.07,
@@ -581,7 +602,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88894.07,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88894.07,
@@ -611,7 +633,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 89462.64,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 89462.64,
@@ -635,7 +658,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 89462.64,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 89462.64,
@@ -665,7 +689,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88451.66,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88451.66,
@@ -689,7 +714,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88451.66,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88451.66,
@@ -719,7 +745,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 89083.39,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 89083.39,
@@ -743,7 +770,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 89083.39,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 89083.39,
@@ -773,7 +801,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 91168.17,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 91168.17,
@@ -797,7 +826,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 91168.17,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 91168.17,
@@ -827,7 +857,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 89210.05,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 89210.05,
@@ -851,7 +882,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 89210.05,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 89210.05,
@@ -881,7 +913,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 90347.00,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 90347.00,
@@ -905,7 +938,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 90347.00,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 90347.00,
@@ -935,7 +969,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 88451.66,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 88451.66,
@@ -959,7 +994,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 88451.66,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 88451.66,
@@ -989,7 +1025,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 90347.23,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 90347.23,
@@ -1013,7 +1050,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 90347.23,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 90347.23,
@@ -1043,7 +1081,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 90978.63,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 90978.63,
@@ -1067,7 +1106,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 90978.63,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 90978.63,
@@ -1097,7 +1137,8 @@ const Math = (form) => {
             },
             "202206": {
                 salarioBase: 92368.44,
-                mes: 0.18
+                mes: 0.18,
+                sac: true
             },
             "202207": {
                 salarioBase: 92368.44,
@@ -1121,7 +1162,8 @@ const Math = (form) => {
             },
             "202212": {
                 salarioBase: 92368.44,
-                mes: 0.59
+                mes: 0.59,
+                sac: true
             },
             "202301": {
                 salarioBase: 92368.44,
@@ -1151,38 +1193,57 @@ const Math = (form) => {
     const extras50 = form.extras50;
     const extras100 = form.extras100;
     const base = form.base;
+    const feriados = form.feriados;
+    const vacaciones = form.vacaciones;
 
     const resultados = ({params}) => {
 
-        const {sBase, ant, jornada, os, extras50, extras100, m} = params || 0;
+        const {sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui} = params || 0;
 
-        var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0,FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL= 0, SUM = 0, RES = 0, PRES = 0;
+        var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0;
 
+        /*INICIO HABERES*/
+        /*REMUNERATIVO*/
         JOR = sBase * (Number(jornada)/8);
-        AUM = JOR * m;
+        FER = (JOR/25) * feriados;
         ANT = JOR * Number(ant);
+        VAC = ((JOR/25) - (JOR/30)) * vacaciones;
         PRES = (JOR + ANT) * 0.08333;
         EX50 = ((JOR + PRES)/192)*1.5*Number(extras50);
         EX100 = ((JOR + PRES)/192)*2*Number(extras100);
-        SUM = JOR + PRES + ANT + EX50 + EX100;
+        SUM = JOR + FER + ANT + VAC + PRES + EX50 + EX100;
+        AGUI = SUM/2;
+        /*NO REMUNERATIVO*/
+        AUM = JOR * m;
+        /*FIN HABERES*/
 
+        /*INICIO DEDUCCIONES*/
+        /*REMUNERATIVAS*/
         JUB = SUM * 0.11;
-        L19032 = (SUM) * 0.03;
-        DOS = (SUM + AUM) * os;
+        L19032 = SUM * 0.03;
+        DOS = SUM * os;
         const OSECAC = 100;
-        ART0 = (SUM + AUM) * 0.02;
-        FAECYS = (SUM + AUM) * 0.005;
+        ART0 = SUM * 0.02;
+        FAECYS /*(ART1)*/ = SUM * 0.005;
         RES = JUB + L19032 + DOS + OSECAC + ART0 + FAECYS;
+        /*NO REMUNERATIVAS*/
+        NDOS = AUM * os;
+        NART0 = AUM * 0.02;
+        NFAECYS = AUM *0.005;
+        NRES = NDOS + NART0 + NFAECYS
+        /*FIN DEDUCCIONES*/
 
-        TOTAL = SUM + AUM - RES;
+        /*TOTAL*/
+        TOTAL = SUM + AUM - RES - NRES;
 
-        return {TOTAL, AUM, ANT, EX50, EX100, PRES, SUM, JOR, JUB, L19032, DOS, OSECAC, ART0, FAECYS, RES, sBase, m};
+        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui};
     }
 
     if(!Number(base)){ sBase = SALARIOS[category][month].salarioBase} else { sBase = Number(base)};
     m = SALARIOS[category][month].mes;
-    //console.log(m)
-    params = {sBase, ant, jornada, os, extras50, extras100, m}
+    if(SALARIOS[category][month].sac === true) agui = true; else agui = false;
+    console.log(agui)
+    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, agui}
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;
