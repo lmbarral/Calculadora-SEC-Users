@@ -1198,7 +1198,7 @@ const Math = (form) => {
 
     const resultados = ({params}) => {
 
-        const {sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui} = params || 0;
+        const {sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui, month} = params || 0;
 
         var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0;
 
@@ -1212,19 +1212,19 @@ const Math = (form) => {
         EX50 = ((JOR + PRES)/192)*1.5*Number(extras50);
         EX100 = ((JOR + PRES)/192)*2*Number(extras100);
         SUM = JOR + FER + ANT + VAC + PRES + EX50 + EX100;
-        AGUI = SUM/2;
+        if(agui === false) AGUI = 0; else AGUI = SUM/2;
         /*NO REMUNERATIVO*/
         AUM = JOR * m;
         /*FIN HABERES*/
 
         /*INICIO DEDUCCIONES*/
         /*REMUNERATIVAS*/
-        JUB = SUM * 0.11;
-        L19032 = SUM * 0.03;
-        DOS = SUM * os;
+        JUB = (SUM + AGUI) * 0.11;
+        L19032 = (SUM + AGUI) * 0.03;
+        DOS = (SUM + AGUI) * os;
         const OSECAC = 100;
-        ART0 = SUM * 0.02;
-        FAECYS /*(ART1)*/ = SUM * 0.005;
+        ART0 = (SUM + AGUI) * 0.02;
+        FAECYS /*(ART1)*/ = (SUM + AGUI) * 0.005;
         RES = JUB + L19032 + DOS + OSECAC + ART0 + FAECYS;
         /*NO REMUNERATIVAS*/
         NDOS = AUM * os;
@@ -1232,18 +1232,18 @@ const Math = (form) => {
         NFAECYS = AUM *0.005;
         NRES = NDOS + NART0 + NFAECYS
         /*FIN DEDUCCIONES*/
-
+        
         /*TOTAL*/
-        TOTAL = SUM + AUM - RES - NRES;
+        TOTAL = SUM + AGUI + AUM - RES - NRES;
 
-        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui};
+        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui, month};
     }
 
     if(!Number(base)){ sBase = SALARIOS[category][month].salarioBase} else { sBase = Number(base)};
     m = SALARIOS[category][month].mes;
     if(SALARIOS[category][month].sac === true) agui = true; else agui = false;
     console.log(agui)
-    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, agui}
+    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, agui, month}
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;

@@ -1,45 +1,51 @@
-import React from "react";
+import React, { useRef } from "react";
 import './ShowData.css';
+import ReactToPrint from "react-to-print";
+
 
 const ShowData = ({neto}) => {
+
+    
+    const componentRef = useRef();
 
     //console.log(neto)
 
     if(!neto) return;
-    const TOTAL = neto.TOTAL || 0;
-    const AUM = neto.AUM || 0;
-    const ANT = neto.ANT || 0;
-    const EX50 = neto.EX50 || 0;
-    const EX100 = neto.EX100 || 0;
-    const PRES = neto.PRES || 0;
-    const SUM = neto.SUM || 0;
-    const JOR = neto.JOR || 0;
-    const JUB = neto.JUB || 0;
-    const L19032 = neto.L19032 || 0;
-    const DOS = neto.DOS || 0;
-    const OSECAC = neto.OSECAC|| 0;
-    const ART0 = neto.ART0 || 0;
-    const FAECYS = neto.FAECYS || 0;
-    const RES = neto.RES || 0;
-    const FER = neto.FER || 0;
-    const VAC = neto.VAC || 0;
-    const NDOS = neto.NDOS || 0;
-    const NFAECYS = neto.NFAECYS || 0;
-    const NART0 = neto.NART0 || 0;
-    const NRES = neto.NRES || 0;
-    const ant = neto.ant || 0;
-    const jornada = neto.jornada || 0;
-    const os = neto.os || 0;
-    const extras50 = neto.extras50 || 0;
-    const extras100 = neto.extras100 || 0;
-    const m = neto.m || 0;
-    const fer = neto.feriados || 0;
-    const vac = neto.vacaciones || 0;
-    const CAT = neto.category || 0;
-    const AGUI =  neto.AGUI || 0;
+    const TOTAL = neto.TOTAL;
+    const AUM = neto.AUM;
+    const ANT = neto.ANT;
+    const EX50 = neto.EX50;
+    const EX100 = neto.EX100;
+    const PRES = neto.PRES;
+    const SUM = neto.SUM;
+    const JOR = neto.JOR;
+    const JUB = neto.JUB;
+    const L19032 = neto.L19032;
+    const DOS = neto.DOS;
+    const OSECAC = neto.OSECAC;
+    const ART0 = neto.ART0;
+    const FAECYS = neto.FAECYS;
+    const RES = neto.RES;
+    const FER = neto.FER;
+    const VAC = neto.VAC;
+    const NDOS = neto.NDOS;
+    const NFAECYS = neto.NFAECYS;
+    const NART0 = neto.NART0;
+    const NRES = neto.NRES;
+    const ant = neto.ant;
+    const jornada = neto.jornada;
+    const os = neto.os;
+    const extras50 = neto.extras50;
+    const extras100 = neto.extras100;
+    const m = neto.m;
+    const fer = neto.feriados;
+    const vac = neto.vacaciones;
+    const CAT = neto.category;
+    const AGUI =  neto.AGUI;
     const agui = neto.agui;
+    const month = neto.month;
 
-    console.log(agui)
+    //console.log(agui)
     
     const CATEGORÍAS = {
         "11": "Maestranza A",
@@ -66,9 +72,10 @@ const ShowData = ({neto}) => {
     };
 
     const SAC = () => {
+
         return(
             <tr>
-                <th scope="row" className="Col-left">Sueldo Anual Complementario</th>
+                <th scope="row" className="Col-left">Aguinaldo (SAC)</th>
                     <td>-</td>
                     <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AGUI)}</td>
                     <td>-</td>
@@ -85,8 +92,8 @@ const ShowData = ({neto}) => {
                         <h1 className="neto">Total: ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(TOTAL)}</h1>
                     </div>
                 </div>
-                <div className="table-responsive">
-                    <table class="table table-bordered">
+                <div className="table-responsive" ref={componentRef}>
+                    <table class="table table-bordered" id="recibo">
                         <thead>
                             <tr>
                                 <th colSpan={5} className="Title">
@@ -231,7 +238,7 @@ const ShowData = ({neto}) => {
                             <tr className="Spacer"><th colSpan={5}></th></tr>
                             <tr>
                                 <th scope="row" colSpan={2}>Totales Parciales</th>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(SUM)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(SUM + AGUI)}</td>
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM)}</td>
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RES + NRES)}</td>
                             </tr>
@@ -244,7 +251,27 @@ const ShowData = ({neto}) => {
                 </div>
                 <div className="Selector">
                     <div class="d-grid gap-2">
-                        <button class="btn" className="btn-config" type="submit">Imprimir Simulación</button>
+                        <div className="Selector-style">
+                            <h3>¿Querés imprimir la simulación?</h3>
+                            <h2>¡Completá el formulario y nosotros te lo enviamos!</h2>
+                        </div>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="name" class="form-control" id="exampleInputPassword1" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Dirección de Correo Electrónico</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <div id="emailHelp" class="form-text">Jamás compartiremos este correo con terceros.</div>
+                            </div>
+                        </form>
+                        <ReactToPrint
+                            trigger={() => <button class="btn" className="btn-config">Imprimir Simulación</button>}
+                            content={() => componentRef.current}
+                            documentTitle={`Simulación-Recibo-SEC_${CATEGORÍAS[CAT]}_${month}`}
+                            pageStyle={"margin-right: .1rem; margin-left: .1rem;"}
+                        />
                     </div>
                 </div>
             </div>
@@ -253,3 +280,5 @@ const ShowData = ({neto}) => {
 }
 
 export default ShowData;
+
+//<button class="btn" className="btn-config" type="submit" onClick={handlePrint}>Imprimir Simulación</button>

@@ -7,6 +7,10 @@
     padding: 1rem;
 }
 
+thead tr{
+    margin: 20%;
+}
+
 .table {
     margin-top: 1rem;
     border-color: #004c97;
