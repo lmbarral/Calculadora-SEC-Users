@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import './ShowData.css';
-import ReactToPrint from "react-to-print";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 
 const ShowData = ({neto}) => {
@@ -45,7 +46,7 @@ const ShowData = ({neto}) => {
     const agui = neto.agui;
     const month = neto.month;
 
-    //console.log(agui)
+    const antFixed = (ant*100).toFixed(0);
     
     const CATEGORÍAS = {
         "11": "Maestranza A",
@@ -84,6 +85,34 @@ const ShowData = ({neto}) => {
         );
     }
 
+    const handleExport = () => {
+        const pdf = new jsPDF("p", "mm", "a4");
+      
+        autoTable(pdf, {
+            html: '#recibo',
+            theme:'grid',
+            headStyles: {
+                fillColor: '#004c97'
+            },
+            columnStyles:{
+                1: {halign: "center"},
+                2: {halign: "center"},
+                3: {halign: "center"},
+                4: {halign: "center"},
+                5: {halign: "center"}
+            },
+            bodyStyles: {
+                textColor: '#004c97'
+            },
+            footStyles: {
+                halign: "center"
+            }
+        });
+        pdf.save(`Recibo-SEC_${CATEGORÍAS[CAT]}_${month}`);
+        //let pdfOutput = pdf.output();
+        //console.log(pdfOutput)
+    };
+
     return(
         <section id="ShowData">
             <div className="ShowData_Style">
@@ -99,17 +128,17 @@ const ShowData = ({neto}) => {
                                 <th colSpan={5} className="Title">
                                     CATEGORÍA: {CATEGORÍAS[CAT]}
                                     <br />
-                                    ANTIGÜEDAD: {ant*100} AÑO/S
+                                    ANTIGÜEDAD: {antFixed} AÑO/S
                                     <br />
                                     JORNADA: {6*jornada} Horas
                                 </th>
                             </tr>
                             <tr>
-                                <th scope="col" className="First-col">HABERES</th>
-                                <th scope="col" className="Second-col">UNIDADES</th>
-                                <th scope="col" className="Third-col">REMUNERATIVOS</th>
-                                <th scope="col" className="Fourth-col">NO REMUNERATIVOS</th>
-                                <th scope="col" className="Fourth-col">DEDUCCIONES</th>
+                                <th scope="col" className="First-col" key={1}>HABERES</th>
+                                <th scope="col" className="Second-col" key={2}>UNIDADES</th>
+                                <th scope="col" className="Third-col" key={3}>REMUNERATIVOS</th>
+                                <th scope="col" className="Fourth-col" key={4}>NO REMUNERATIVOS</th>
+                                <th scope="col" className="Fourth-col" key={5}>DEDUCCIONES</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,7 +151,7 @@ const ShowData = ({neto}) => {
                             </tr>
                             <tr>
                                 <th scope="row" className="Col-left">Antigüedad</th>
-                                    <td>{ant*100}%</td>
+                                    <td>{antFixed}%</td>
                                     <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(ANT)}</td>
                                     <td>-</td>
                                     <td>-</td>
@@ -235,7 +264,7 @@ const ShowData = ({neto}) => {
                                 <td>-</td>
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NFAECYS)}</td>
                             </tr>
-                            <tr className="Spacer"><th colSpan={5}></th></tr>
+                            <tr className="Spacer"><th colSpan={5} key={"spacer"}></th></tr>
                             <tr>
                                 <th scope="row" colSpan={2}>Totales Parciales</th>
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(SUM + AGUI)}</td>
@@ -247,6 +276,13 @@ const ShowData = ({neto}) => {
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(TOTAL)}</td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colSpan={5} className="Footer">
+                                    La presente liquidación no es real y se imprime al sólo efecto de orientar sobre la misma. Cada caso puede ser revisado puntualmente enviando la documentación a gremiales@sec.org.ar.
+                                </th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <div className="Selector">
@@ -266,12 +302,7 @@ const ShowData = ({neto}) => {
                                 <div id="emailHelp" class="form-text">Jamás compartiremos este correo con terceros.</div>
                             </div>
                         </form>
-                        <ReactToPrint
-                            trigger={() => <button class="btn" className="btn-config">Imprimir Simulación</button>}
-                            content={() => componentRef.current}
-                            documentTitle={`Simulación-Recibo-SEC_${CATEGORÍAS[CAT]}_${month}`}
-                            pageStyle={"margin-right: .1rem; margin-left: .1rem;"}
-                        />
+                        <button class="btn" className="btn-config" type="submit" onClick={handleExport}>Imprimir Simulación</button>
                     </div>
                 </div>
             </div>
@@ -280,5 +311,3 @@ const ShowData = ({neto}) => {
 }
 
 export default ShowData;
-
-//<button class="btn" className="btn-config" type="submit" onClick={handlePrint}>Imprimir Simulación</button>
