@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import './ShowData.css';
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -8,6 +8,9 @@ const ShowData = ({neto}) => {
 
     
     const componentRef = useRef();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [user, setUser] = useState({});
 
     //console.log(neto)
 
@@ -39,8 +42,8 @@ const ShowData = ({neto}) => {
     const extras50 = neto.extras50;
     const extras100 = neto.extras100;
     const m = neto.m;
-    const fer = neto.feriados;
-    const vac = neto.vacaciones;
+    const fer = neto.feriadosM;
+    const vac = neto.vacacionesM;
     const CAT = neto.category;
     const AGUI =  neto.AGUI;
     const agui = neto.agui;
@@ -87,7 +90,10 @@ const ShowData = ({neto}) => {
 
     const handleExport = () => {
         const pdf = new jsPDF("p", "mm", "a4");
-      
+        
+        if(name === "" || email === "") return;
+        setUser({name, email});
+
         autoTable(pdf, {
             html: '#recibo',
             theme:'grid',
@@ -294,11 +300,23 @@ const ShowData = ({neto}) => {
                         <form>
                             <div class="mb-3">
                                 <label class="form-label">Nombre</label>
-                                <input type="name" class="form-control" id="exampleInputPassword1" />
+                                <input
+                                    type="name"
+                                    class="form-control"
+                                    id="exampleInputPassword1"
+                                    required
+                                    onChange={(e) => { setName(e.target.value) }}
+                                />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Dirección de Correo Electrónico</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input
+                                    type={"email"}
+                                    class="form-control"
+                                    id="exampleInputEmail1"
+                                    required
+                                    onChange={(e) => { setEmail(e.target.value) }}
+                                />
                                 <div id="emailHelp" class="form-text">Jamás compartiremos este correo con terceros.</div>
                             </div>
                         </form>

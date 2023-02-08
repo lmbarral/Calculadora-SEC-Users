@@ -2,7 +2,7 @@ const Math = (form) => {
 
     //console.log({form})
 
-    var sBase = 0, m = 0, agui = false;
+    var sBase = 0, m = 0, agui = false, feriadosM = 0, vacacionesM = 0;
     var params = {}, neto = {};
 
     const SALARIOS = {
@@ -1198,16 +1198,16 @@ const Math = (form) => {
 
     const resultados = ({params}) => {
 
-        const {sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui, month} = params || 0;
+        const {sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month} = params || 0;
 
         var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0;
 
         /*INICIO HABERES*/
         /*REMUNERATIVO*/
         JOR = sBase * (Number(jornada)/8);
-        FER = (JOR/25) * feriados;
+        FER = (JOR/25) * feriadosM;
         ANT = JOR * Number(ant);
-        VAC = ((JOR/25) - (JOR/30)) * vacaciones;
+        VAC = ((JOR/25) - (JOR/30)) * vacacionesM;
         PRES = (JOR + ANT) * 0.08333;
         EX50 = ((JOR + PRES)/192)*1.5*Number(extras50);
         EX100 = ((JOR + PRES)/192)*2*Number(extras100);
@@ -1236,14 +1236,15 @@ const Math = (form) => {
         /*TOTAL*/
         TOTAL = SUM + AGUI + AUM - RES - NRES;
 
-        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, category, agui, month};
+        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month};
     }
 
     if(!Number(base)){ sBase = SALARIOS[category][month].salarioBase} else { sBase = Number(base)};
     m = SALARIOS[category][month].mes;
     if(SALARIOS[category][month].sac === true) agui = true; else agui = false;
-    console.log(agui)
-    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriados, vacaciones, agui, month}
+    if(feriados === "Elegí una opción") feriadosM = 0; else feriadosM = feriados;
+    if(vacaciones === "Elegí una opción") vacacionesM = 0; else vacacionesM = vacaciones;
+    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, agui, month}
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;

@@ -50,8 +50,8 @@ const Extras = ({handleClick2}) => {
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
-                                <h4>Sueldo Base</h4>
-                                <input type="number" class="form-control text-center" id="base" placeholder="Ingresá tu sueldo base (Opcional)" onChange={(e) => { setBase(e.target.value) }}></input>
+                                <h4>Sueldo Base + Presentismo</h4>
+                                <input type="number" class="form-control text-center" id="base" placeholder="Ingresá el valor acá" onChange={(e) => { setBase(e.target.value) }}></input>
                             </div>
                             <div class="col">
                                 <h4>Años de Antigüedad</h4>
