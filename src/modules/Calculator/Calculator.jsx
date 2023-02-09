@@ -13,10 +13,15 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const [vacaciones, setVacaciones] = useState("");
     const [extras50, setExtras50] = useState("");
     const [extras100, setExtras100] = useState("");
+    const [adEmpresa, setAdEmpresa] = useState("");
     const [base, setBase] = useState("");
     const [data, setData] = useState({});
     const [state, setState] = useState(false);
     const [error, setError] = useState(true);
+
+    const [g, setG] = useState(true);
+    const [c, setC] = useState(false);
+    const [t, setT] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -27,7 +32,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         }
         setError(false);
         pError(error);
-        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa});
         //console.log(data);
         submitSearch(data);
         if(state === true) return;
@@ -36,7 +41,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     }
 
     const handleChange = () => {
-        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa});
     }
 
     const handleErrase = () => {
@@ -50,6 +55,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         setBase("");
         setFeriado("");
         setVacaciones("");
+        setAdEmpresa("");
         if(data === "") return;
         setData("");
         setState(current => !current);
@@ -62,6 +68,64 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const handleClosure = () => {
         handleClick1(false);
         handleErrase();
+        pError(false);
+    }
+
+    const GENERAL = () => {
+        
+        return(
+            <select
+            class="form-select text-center"
+            type="text"
+            name="Category"
+            required
+            autoFocus
+            value={category}
+            onChange={(e) => { setCategory(e.target.value); handleChange() }}>
+                <option defaultValue={""}>Elegí una opción</option>
+                <option value="11" >Maestranza A</option>
+                <option value="12" >Maestranza B</option>
+                <option value="13" >Maestranza C</option>
+                <option value="21" >Administrativo A</option>
+                <option value="22" >Administrativo B</option>
+                <option value="23" >Administrativo C</option>
+                <option value="24" >Administrativo D</option>
+                <option value="25" >Administrativo E</option>
+                <option value="26" >Administrativo F</option>
+                <option value="31" >Cajeros A</option>
+                <option value="32" >Cajeros B</option>
+                <option value="33" >Cajeros C</option>
+                <option value="41" >Auxiliar A</option>
+                <option value="42" >Auxiliar B</option>
+                <option value="43" >Auxiliar C</option>
+                <option value="51" >Auxiliar Especializado A</option>
+                <option value="52" >Auxiliar Especializado B</option>
+                <option value="61" >Vendedor A</option>
+                <option value="62" >Vendedor B</option>
+                <option value="63" >Vendedor C</option>
+                <option value="64" >Vendedor D</option>
+            </select>
+        );
+    }
+
+    const CALLCENTER = () => {
+
+        return(
+            <select
+            class="form-select text-center"
+            type="text"
+            name="Category"
+            required
+            autoFocus
+            value={category}
+            onChange={(e) => { setCategory(e.target.value); handleChange() }}>
+                <option defaultValue={""}>Elegí una opción</option>
+                <option value="71" >Mantenimiento</option>
+                <option value="81" >Administrativo</option>
+                <option value="91" >Operación A</option>
+                <option value="92" >Operación B</option>
+            </select>
+        );
     }
 
     return(
@@ -70,42 +134,20 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                 <div className="Pre-Calculator-title">
                     <h2>CALCULADORA DE SUELDO SEC</h2>
                 </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary" onClick={() => {setG(true); setC(false); setTimeout(false)}}>Convenio General</button>
+                    <button type="button" class="btn btn-primary" onClick={() => {setG(false); setC(true); setTimeout(false)}}>Convenio Call Centers</button>
+                    <button type="button" class="btn btn-primary" onClick={() => {setG(false); setC(false); setTimeout(true)}}>Convenio Turismo</button>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
                                 <h4>Categoría</h4>
-                                <select
-                                class="form-select text-center"
-                                type="text"
-                                name="Category"
-                                required
-                                autoFocus
-                                value={category}
-                                onChange={(e) => { setCategory(e.target.value); handleChange() }}>
-                                    <option defaultValue={""}>Elegí una opción</option>
-                                    <option value="11" >Maestranza A</option>
-                                    <option value="12" >Maestranza B</option>
-                                    <option value="13" >Maestranza C</option>
-                                    <option value="21" >Administrativo A</option>
-                                    <option value="22" >Administrativo B</option>
-                                    <option value="23" >Administrativo C</option>
-                                    <option value="24" >Administrativo D</option>
-                                    <option value="25" >Administrativo E</option>
-                                    <option value="26" >Administrativo F</option>
-                                    <option value="31" >Cajeros A</option>
-                                    <option value="32" >Cajeros B</option>
-                                    <option value="33" >Cajeros C</option>
-                                    <option value="41" >Auxiliar A</option>
-                                    <option value="42" >Auxiliar B</option>
-                                    <option value="43" >Auxiliar C</option>
-                                    <option value="51" >Auxiliar Especializado A</option>
-                                    <option value="52" >Auxiliar Especializado B</option>
-                                    <option value="61" >Vendedor A</option>
-                                    <option value="62" >Vendedor B</option>
-                                    <option value="63" >Vendedor C</option>
-                                    <option value="64" >Vendedor D</option>
-                                </select>
+                                <>
+                                    {g && <GENERAL />}
+                                    {c && <CALLCENTER />}
+                                </>
                             </div>
                             <div class="col">
                                 <h4>Mes de Cálculo</h4>
@@ -212,11 +254,44 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 value={jornada}
                                 onChange={(e) => { setJornada(e.target.value); handleChange() }}>
                                     <option defaultValue={""}>Elegí una opción</option>
-                                    <option value={4} >1/2 jornada (4hs)</option>
-                                    <option value={5} >5 hs.</option>
-                                    <option value={5.333} >2/3 Jornada</option>
-                                    <option value={6} >6 hs.</option>
-                                    <option value={8}>Jornada Completa (8hs)</option>
+                                    <option value="48">Completa (48 hs)</option>
+                                    <option value="47">47 hs</option>
+                                    <option value="46">46 hs</option>
+                                    <option value="45">45 hs</option>
+                                    <option value="44">44 hs</option>
+                                    <option value="43">43 hs</option>
+                                    <option value="42">42 hs</option>
+                                    <option value="40">40 hs</option>
+                                    <option value="39">39 hs</option>
+                                    <option value="38">38 hs</option>
+                                    <option value="37">37 hs</option>
+                                    <option value="36">36 hs</option>
+                                    <option value="35">35 hs</option>
+                                    <option value="34">34 hs</option>
+                                    <option value="33">33 hs</option>
+                                    <option value="32">32 hs (dos tercios)</option>
+                                    <option value="31">31 hs</option>
+                                    <option value="30">30 hs</option>
+                                    <option value="29">29 hs</option>
+                                    <option value="28">28 hs</option>
+                                    <option value="27">27 hs</option>
+                                    <option value="26">26 hs</option>
+                                    <option value="25">25 hs</option>
+                                    <option value="24">24 hs (media)</option>
+                                    <option value="23">23 hs</option>
+                                    <option value="22">22 hs</option>
+                                    <option value="21">21 hs</option>
+                                    <option value="20">20 hs</option>
+                                    <option value="19">19 hs</option>
+                                    <option value="18">18 hs</option>
+                                    <option value="17">17 hs</option>
+                                    <option value="16">16 hs</option>
+                                    <option value="15">15 hs</option>
+                                    <option value="14">14 hs</option>
+                                    <option value="13">13 hs</option>
+                                    <option value="12">12 hs</option>
+                                    <option value="11">11 hs</option>
+                                    <option value="10">10 hs</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -308,6 +383,16 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 placeholder="Cant. de Horas Extras"
                                 value={extras100}
                                 onChange={(e) => { setExtras100(e.target.value); handleChange() } }></input>
+                            </div>
+                            <div class="col">
+                                <h4>Adicional Empresa</h4>
+                                <input type="number"
+                                class="form-control text-center"
+                                id="adEmpresa"
+                                //autoFocus
+                                placeholder="(Opcional)"
+                                value={adEmpresa}
+                                onChange={(e) => { setAdEmpresa(e.target.value); handleChange() } }></input>
                             </div>
                         </div>
                     </div>

@@ -1,11 +1,12 @@
 const Math = (form) => {
 
-    //console.log({form})
+    console.log({form})
 
-    var sBase = 0, m = 0, agui = false, feriadosM = 0, vacacionesM = 0;
+    var sBase = 0, m = 0, agui = false, feriadosM = 0, vacacionesM = 0, adEmpresaM = 0;
     var params = {}, neto = {};
 
     const SALARIOS = {
+        //COMERCIO//
         "11": {
             "202204": {
                 salarioBase: 87188.65,
@@ -1182,6 +1183,232 @@ const Math = (form) => {
                 mes: 0.00
             }
         },
+        //CALL CENTERS//
+        "71": {
+            "202204": {
+                salarioBase: 88325.29,
+                mes: 0.06
+            },
+            "202205": {
+                salarioBase: 88325.29,
+                mes: 0.12
+            },
+            "202206": {
+                salarioBase: 88325.29,
+                mes: 0.18,
+                sac: true
+            },
+            "202207": {
+                salarioBase: 88325.29,
+                mes: 0.18
+            },
+            "202208": {
+                salarioBase: 88325.29,
+                mes: 0.28
+            },
+            "202209": {
+                salarioBase: 88325.29,
+                mes: 0.38
+            },
+            "202210": {
+                salarioBase: 88325.29,
+                mes: 0.38
+            },
+            "202211": {
+                salarioBase: 88325.29,
+                mes: 0.49
+            },
+            "202212": {
+                salarioBase: 88325.29,
+                mes: 0.49,
+                sac: true
+            },
+            "202301": {
+                salarioBase: 121888.90,
+                mes: 0.16
+            },
+            "202302": {
+                salarioBase: 140203.15,
+                mes: 0.14
+            },
+            "202303": {
+                salarioBase: 155963.27,
+                mes: 0.12
+            },
+            "202304": {
+                salarioBase: 174953.21,
+                mes: 0.00
+            }
+        },
+        "81": {
+            "202204": {
+                salarioBase: 88515.15,
+                mes: 0.06
+            },
+            "202205": {
+                salarioBase: 88515.15,
+                mes: 0.12
+            },
+            "202206": {
+                salarioBase: 88515.15,
+                mes: 0.18,
+                sac: true
+            },
+            "202207": {
+                salarioBase: 88515.15,
+                mes: 0.18
+            },
+            "202208": {
+                salarioBase: 88515.15,
+                mes: 0.28
+            },
+            "202209": {
+                salarioBase: 88515.15,
+                mes: 0.38
+            },
+            "202210": {
+                salarioBase: 88515.15,
+                mes: 0.38
+            },
+            "202211": {
+                salarioBase: 88515.15,
+                mes: 0.49
+            },
+            "202212": {
+                salarioBase: 88515.15,
+                mes: 0.49,
+                sac: true
+            },
+            "202301": {
+                salarioBase: 122150.90,
+                mes: 0.16
+            },
+            "202302": {
+                salarioBase: 140504.52,
+                mes: 0.14
+            },
+            "202303": {
+                salarioBase: 156298.51,
+                mes: 0.12
+            },
+            "202304": {
+                salarioBase: 175329.27,
+                mes: 0.00
+            }
+        },
+        "91": {
+            "202204": {
+                salarioBase: 66386.35,
+                mes: 0.06
+            },
+            "202205": {
+                salarioBase: 66386.35,
+                mes: 0.12
+            },
+            "202206": {
+                salarioBase: 66386.35,
+                mes: 0.18,
+                sac: true
+            },
+            "202207": {
+                salarioBase: 66386.35,
+                mes: 0.18
+            },
+            "202208": {
+                salarioBase: 66386.35,
+                mes: 0.28
+            },
+            "202209": {
+                salarioBase: 66386.35,
+                mes: 0.38
+            },
+            "202210": {
+                salarioBase: 66386.35,
+                mes: 0.38
+            },
+            "202211": {
+                salarioBase: 66386.35,
+                mes: 0.49
+            },
+            "202212": {
+                salarioBase: 66386.35,
+                mes: 0.49,
+                sac: true
+            },
+            "202301": {
+                salarioBase: 91613.16,
+                mes: 0.16
+            },
+            "202302": {
+                salarioBase: 105378.37,
+                mes: 0.14
+            },
+            "202303": {
+                salarioBase: 117223.86,
+                mes: 0.12
+            },
+            "202304": {
+                salarioBase: 131496.93,
+                mes: 0.00
+            }
+        },
+        "92": {
+            "202204": {
+                salarioBase: 67523.44,
+                mes: 0.06
+            },
+            "202205": {
+                salarioBase: 67523.44,
+                mes: 0.12
+            },
+            "202206": {
+                salarioBase: 67523.44,
+                mes: 0.18,
+                sac: true
+            },
+            "202207": {
+                salarioBase: 67523.44,
+                mes: 0.18
+            },
+            "202208": {
+                salarioBase: 67523.44,
+                mes: 0.28
+            },
+            "202209": {
+                salarioBase: 67523.44,
+                mes: 0.38
+            },
+            "202210": {
+                salarioBase: 67523.44,
+                mes: 0.38
+            },
+            "202211": {
+                salarioBase: 67523.44,
+                mes: 0.49
+            },
+            "202212": {
+                salarioBase: 67523.44,
+                mes: 0.49,
+                sac: true
+            },
+            "202301": {
+                salarioBase: 93182.35,
+                mes: 0.16
+            },
+            "202302": {
+                salarioBase: 107183.34,
+                mes: 0.14
+            },
+            "202303": {
+                salarioBase: 119231.72,
+                mes: 0.12
+            },
+            "202304": {
+                salarioBase: 133749.26,
+                mes: 0.00
+            }
+        },
+        //TURISMO//
     };
 
     if(!form || form === undefined) return;
@@ -1195,23 +1422,24 @@ const Math = (form) => {
     const base = form.base;
     const feriados = form.feriados;
     const vacaciones = form.vacaciones;
+    const adEmpresa = form.adEmpresa;
 
     const resultados = ({params}) => {
 
-        const {sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month} = params || 0;
+        const {sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM} = params || 0;
 
         var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0;
 
         /*INICIO HABERES*/
         /*REMUNERATIVO*/
-        JOR = sBase * (Number(jornada)/8);
+        JOR = sBase * (Number(jornada)/48);
         FER = (JOR/25) * feriadosM;
-        ANT = JOR * Number(ant);
+        if(ant === "0") ANT = ""; else ANT = JOR * Number(ant);
         VAC = ((JOR/25) - (JOR/30)) * vacacionesM;
         PRES = (JOR + ANT) * 0.08333;
         EX50 = ((JOR + PRES)/192)*1.5*Number(extras50);
         EX100 = ((JOR + PRES)/192)*2*Number(extras100);
-        SUM = JOR + FER + ANT + VAC + PRES + EX50 + EX100;
+        SUM = JOR + FER + ANT + VAC + PRES + EX50 + EX100 + Number(adEmpresaM);
         if(agui === false) AGUI = 0; else AGUI = SUM/2;
         /*NO REMUNERATIVO*/
         AUM = JOR * m;
@@ -1236,7 +1464,7 @@ const Math = (form) => {
         /*TOTAL*/
         TOTAL = SUM + AGUI + AUM - RES - NRES;
 
-        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month};
+        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM};
     }
 
     if(!Number(base)){ sBase = SALARIOS[category][month].salarioBase} else { sBase = Number(base)};
@@ -1244,7 +1472,8 @@ const Math = (form) => {
     if(SALARIOS[category][month].sac === true) agui = true; else agui = false;
     if(feriados === "Elegí una opción") feriadosM = 0; else feriadosM = feriados;
     if(vacaciones === "Elegí una opción") vacacionesM = 0; else vacacionesM = vacaciones;
-    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, agui, month}
+    if(adEmpresa === "") adEmpresaM = false; else adEmpresaM = adEmpresa;
+    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, agui, month, adEmpresaM}
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;

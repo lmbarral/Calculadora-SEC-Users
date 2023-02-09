@@ -16,8 +16,8 @@ const ShowData = ({neto}) => {
 
     if(!neto) return;
     const TOTAL = neto.TOTAL;
-    const AUM = neto.AUM;
-    const ANT = neto.ANT;
+    const AUM = neto.AUM || false;
+    const ANT = neto.ANT || false;
     const EX50 = neto.EX50;
     const EX100 = neto.EX100;
     const PRES = neto.PRES;
@@ -32,10 +32,10 @@ const ShowData = ({neto}) => {
     const RES = neto.RES;
     const FER = neto.FER;
     const VAC = neto.VAC;
-    const NDOS = neto.NDOS;
-    const NFAECYS = neto.NFAECYS;
-    const NART0 = neto.NART0;
-    const NRES = neto.NRES;
+    const NDOS = neto.NDOS || false;
+    const NFAECYS = neto.NFAECYS || false;
+    const NART0 = neto.NART0 || false;
+    const NRES = neto.NRES || false;
     const ant = neto.ant;
     const jornada = neto.jornada;
     const os = neto.os;
@@ -48,6 +48,7 @@ const ShowData = ({neto}) => {
     const AGUI =  neto.AGUI;
     const agui = neto.agui;
     const month = neto.month;
+    const adEmpresaM = neto.adEmpresaM || false;
 
     const antFixed = (ant*100).toFixed(0);
     
@@ -75,6 +76,19 @@ const ShowData = ({neto}) => {
         "64": "Vendedor D",
     };
 
+    const ANTG = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Antigüedad</th>
+                    <td>{antFixed}%</td>
+                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(ANT)}</td>
+                    <td>-</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
     const SAC = () => {
 
         return(
@@ -84,6 +98,123 @@ const ShowData = ({neto}) => {
                     <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AGUI)}</td>
                     <td>-</td>
                     <td>-</td>
+            </tr>
+        );
+    }
+
+    const ADEMPRESA = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Adicional Empresa</th>
+                    <td>-</td>
+                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(adEmpresaM)}</td>
+                    <td>-</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const FERIADOS = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Feriados</th>
+                    <td>{fer}</td>
+                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(FER)}</td>
+                    <td>-</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const EXTRAS50 = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Horas Extras al 50%</th>
+                    <td>{extras50}</td>
+                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(EX50)}</td>
+                    <td>-</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const EXTRAS100 = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Horas Extras al 100%</th>
+                    <td>{extras100}</td>
+                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(EX100)}</td>
+                    <td>-</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const VACACIONES = () => {
+                            
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Vacaciones</th>
+                    <td>{vac}</td>
+                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(VAC)}</td>
+                    <td>-</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACUERDO = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Aumento Acuerdo</th>
+                    <td>{m*100}%</td>
+                    <td>-</td>
+                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM)}</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const EXOS = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Extraordinario Obra Social</th>
+                <td>3%</td>
+                <td>-</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NDOS)}</td>
+            </tr>
+        );
+    }
+
+    const EXSEC = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Extraordinario S.E.C.</th>
+                <td>2%</td>
+                <td>-</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NART0)}</td>
+            </tr>
+        );
+    }
+
+    const EXFAECYS = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Extraordinario F.A.E.C.Y.S.</th>
+                <td>0,5%</td>
+                <td>-</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NFAECYS)}</td>
             </tr>
         );
     }
@@ -136,7 +267,7 @@ const ShowData = ({neto}) => {
                                     <br />
                                     ANTIGÜEDAD: {antFixed} AÑO/S
                                     <br />
-                                    JORNADA: {6*jornada} Horas
+                                    JORNADA: {jornada} Horas
                                 </th>
                             </tr>
                             <tr>
@@ -155,36 +286,23 @@ const ShowData = ({neto}) => {
                                     <td>-</td>
                                     <td>-</td>
                             </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Antigüedad</th>
-                                    <td>{antFixed}%</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(ANT)}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Feriados</th>
-                                    <td>{fer}</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(FER)}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Horas Extras al 50%</th>
-                                    <td>{extras50}</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(EX50)}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Horas Extras al 100%</th>
-                                    <td>{extras100}</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(EX100)}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                            </tr>
                             <>
-                                {agui && <SAC/>}
+                                {ant && <ANTG />}
+                            </>
+                            <>
+                                {fer && <FERIADOS />}
+                            </>
+                            <>
+                                {extras50 && <EXTRAS50 />}
+                            </>
+                            <>
+                                {extras100 && <EXTRAS100 />}
+                            </>
+                            <>
+                                {agui && <SAC />}
+                            </>
+                            <>
+                                {adEmpresaM && <ADEMPRESA />}
                             </>
                             <tr>
                                 <th scope="row" className="Col-left">Presentismo</th>
@@ -193,20 +311,12 @@ const ShowData = ({neto}) => {
                                     <td>-</td>
                                     <td>-</td>
                             </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Vacaciones</th>
-                                    <td>{vac}</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(VAC)}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Aumento Acuerdo</th>
-                                    <td>{m*100}%</td>
-                                    <td>-</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM)}</td>
-                                    <td>-</td>
-                            </tr>
+                            <>
+                                {vac && <VACACIONES />}
+                            </>
+                            <>
+                                {AUM && <ACUERDO />}
+                            </>
                             <tr>
                                 <th scope="row" className="Col-left">Jubilación</th>
                                     <td>11%</td>
@@ -249,27 +359,15 @@ const ShowData = ({neto}) => {
                                 <td>-</td>
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(FAECYS)}</td>
                             </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Extraordinario Obra Social</th>
-                                <td>3%</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NDOS)}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Extraordinario S.E.C.</th>
-                                <td>2%</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NART0)}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="Col-left">Extraordinario F.A.E.C.Y.S.</th>
-                                <td>0,5%</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NFAECYS)}</td>
-                            </tr>
+                            <>
+                                {NDOS && <EXOS />}
+                            </>
+                            <>
+                                {NART0 && <EXSEC />}
+                            </>
+                            <>
+                                {NFAECYS && <EXFAECYS />}
+                            </>
                             <tr className="Spacer"><th colSpan={5} key={"spacer"}></th></tr>
                             <tr>
                                 <th scope="row" colSpan={2}>Totales Parciales</th>
