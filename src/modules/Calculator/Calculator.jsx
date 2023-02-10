@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useRef } from "react";
+import { useState, useEffect } from "react";
 import './Calculator.css';
 
 const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
@@ -18,6 +18,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const [data, setData] = useState({});
     const [state, setState] = useState(false);
     const [error, setError] = useState(true);
+    const inputRef = useRef();
 
     const [g, setG] = useState(true);
     const [c, setC] = useState(false);
@@ -134,20 +135,48 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                 <div className="Pre-Calculator-title">
                     <h2>CALCULADORA DE SUELDO SEC</h2>
                 </div>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary" onClick={() => {setG(true); setC(false); setTimeout(false)}}>Convenio General</button>
-                    <button type="button" class="btn btn-primary" onClick={() => {setG(false); setC(true); setTimeout(false)}}>Convenio Call Centers</button>
-                    <button type="button" class="btn btn-primary" onClick={() => {setG(false); setC(false); setTimeout(true)}}>Convenio Turismo</button>
-                </div>
                 <form onSubmit={handleSubmit}>
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
                                 <h4>Categoría</h4>
-                                <>
-                                    {g && <GENERAL />}
-                                    {c && <CALLCENTER />}
-                                </>
+                                <select
+                                class="form-select text-center"
+                                type="text"
+                                name="Category"
+                                required
+                                autoFocus
+                                value={category}
+                                onChange={(e) => { setCategory(e.target.value); handleChange() }}>
+                                    <option defaultValue={""}>Elegí una opción</option>
+                                    <option className="disOpt" disabled><strong>CONVENIO GENERAL</strong></option>
+                                    <option value="11" >Maestranza A</option>
+                                    <option value="12" >Maestranza B</option>
+                                    <option value="13" >Maestranza C</option>
+                                    <option value="21" >Administrativo A</option>
+                                    <option value="22" >Administrativo B</option>
+                                    <option value="23" >Administrativo C</option>
+                                    <option value="24" >Administrativo D</option>
+                                    <option value="25" >Administrativo E</option>
+                                    <option value="26" >Administrativo F</option>
+                                    <option value="31" >Cajeros A</option>
+                                    <option value="32" >Cajeros B</option>
+                                    <option value="33" >Cajeros C</option>
+                                    <option value="41" >Auxiliar A</option>
+                                    <option value="42" >Auxiliar B</option>
+                                    <option value="43" >Auxiliar C</option>
+                                    <option value="51" >Auxiliar Especializado A</option>
+                                    <option value="52" >Auxiliar Especializado B</option>
+                                    <option value="61" >Vendedor A</option>
+                                    <option value="62" >Vendedor B</option>
+                                    <option value="63" >Vendedor C</option>
+                                    <option value="64" >Vendedor D</option>
+                                    <option className="disOpt" disabled><strong>CONVENIO CALL CENTER</strong></option>
+                                    <option value="71" >Mantenimiento</option>
+                                    <option value="81" >Administrativo</option>
+                                    <option value="91" >Operación A</option>
+                                    <option value="92" >Operación B</option>
+                                </select>
                             </div>
                             <div class="col">
                                 <h4>Mes de Cálculo</h4>
@@ -366,10 +395,10 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                         <div class="row">
                             <div class="col">
                                 <h4>Horas Extras al 50%</h4>
-                                <input type="number"
+                                <input
+                                type="number"
                                 class="form-control text-center"
                                 id="extras50"
-                                //autoFocus
                                 placeholder="Cant. de Horas Extras"
                                 value={extras50}
                                 onChange={(e) => { setExtras50(e.target.value); handleChange() }}></input>
@@ -379,7 +408,6 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 <input type="number"
                                 class="form-control text-center"
                                 id="extras100"
-                                //autoFocus
                                 placeholder="Cant. de Horas Extras"
                                 value={extras100}
                                 onChange={(e) => { setExtras100(e.target.value); handleChange() } }></input>
@@ -389,7 +417,6 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 <input type="number"
                                 class="form-control text-center"
                                 id="adEmpresa"
-                                //autoFocus
                                 placeholder="(Opcional)"
                                 value={adEmpresa}
                                 onChange={(e) => { setAdEmpresa(e.target.value); handleChange() } }></input>
@@ -400,7 +427,12 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                         <div class="row">
                             <div class="col">
                                 <h4>Sueldo Base</h4>
-                                <input type="number" class="form-control text-center" id="base" placeholder="Ingresá tu sueldo base (Opcional)" onChange={(e) => { setBase(e.target.value); handleChange() }}></input>
+                                <input
+                                type="number"
+                                class="form-control text-center"
+                                id="base"
+                                placeholder="Ingresá tu sueldo base (Opcional)"
+                                onChange={(e) => { setBase(e.target.value); handleChange() }}></input>
                             </div>
                         </div>
                     </div>

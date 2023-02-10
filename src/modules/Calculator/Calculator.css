@@ -40,6 +40,12 @@ h4 {
     --bs-btn-bg: #004c97;
 }
 
+.disOpt {
+    color: #fff;
+    font-weight: 100;
+    background-color: #004c97;
+}
+
 @media Screen and (max-width: 833px) {
     .Calculator {
         margin-left: 10%;
