@@ -18,7 +18,8 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const [data, setData] = useState({});
     const [state, setState] = useState(false);
     const [error, setError] = useState(true);
-    const inputRef = useRef();
+
+    console.log(data)
 
     const [g, setG] = useState(true);
     const [c, setC] = useState(false);
@@ -46,18 +47,18 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     }
 
     const handleErrase = () => {
-        if(category === "" || month === "" || ant === "" || jornada === "") return;
-        setCategory("");
-        setMonth("");
-        setAnt("");
-        setJornada("");
         setExtras50("");
         setExtras100("");
         setBase("");
         setFeriado("");
         setVacaciones("");
         setAdEmpresa("");
-        if(data === "") return;
+        if(category === "" || month === "" || ant === "" || jornada === "") return;
+        setCategory("");
+        setMonth("");
+        setAnt("");
+        setJornada("");
+        if(data === "" || data === {} || data === undefined) return;
         setData("");
         setState(current => !current);
         passState(state);
