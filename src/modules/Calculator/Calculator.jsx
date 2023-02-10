@@ -15,15 +15,16 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const [extras100, setExtras100] = useState("");
     const [adEmpresa, setAdEmpresa] = useState("");
     const [base, setBase] = useState("");
+    const [km, setKm] = useState("");
     const [data, setData] = useState({});
     const [state, setState] = useState(false);
     const [error, setError] = useState(true);
 
     console.log(data)
 
-    const [g, setG] = useState(true);
-    const [c, setC] = useState(false);
-    const [t, setT] = useState(false);
+    //const [g, setG] = useState(true);
+    //const [c, setC] = useState(false);
+    //const [t, setT] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -34,7 +35,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         }
         setError(false);
         pError(error);
-        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa, km});
         //console.log(data);
         submitSearch(data);
         if(state === true) return;
@@ -43,7 +44,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     }
 
     const handleChange = () => {
-        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa, km});
     }
 
     const handleErrase = () => {
@@ -53,6 +54,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         setFeriado("");
         setVacaciones("");
         setAdEmpresa("");
+        setKm("");
         if(category === "" || month === "" || ant === "" || jornada === "") return;
         setCategory("");
         setMonth("");
@@ -71,63 +73,6 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         handleClick1(false);
         handleErrase();
         pError(false);
-    }
-
-    const GENERAL = () => {
-        
-        return(
-            <select
-            class="form-select text-center"
-            type="text"
-            name="Category"
-            required
-            autoFocus
-            value={category}
-            onChange={(e) => { setCategory(e.target.value); handleChange() }}>
-                <option defaultValue={""}>Elegí una opción</option>
-                <option value="11" >Maestranza A</option>
-                <option value="12" >Maestranza B</option>
-                <option value="13" >Maestranza C</option>
-                <option value="21" >Administrativo A</option>
-                <option value="22" >Administrativo B</option>
-                <option value="23" >Administrativo C</option>
-                <option value="24" >Administrativo D</option>
-                <option value="25" >Administrativo E</option>
-                <option value="26" >Administrativo F</option>
-                <option value="31" >Cajeros A</option>
-                <option value="32" >Cajeros B</option>
-                <option value="33" >Cajeros C</option>
-                <option value="41" >Auxiliar A</option>
-                <option value="42" >Auxiliar B</option>
-                <option value="43" >Auxiliar C</option>
-                <option value="51" >Auxiliar Especializado A</option>
-                <option value="52" >Auxiliar Especializado B</option>
-                <option value="61" >Vendedor A</option>
-                <option value="62" >Vendedor B</option>
-                <option value="63" >Vendedor C</option>
-                <option value="64" >Vendedor D</option>
-            </select>
-        );
-    }
-
-    const CALLCENTER = () => {
-
-        return(
-            <select
-            class="form-select text-center"
-            type="text"
-            name="Category"
-            required
-            autoFocus
-            value={category}
-            onChange={(e) => { setCategory(e.target.value); handleChange() }}>
-                <option defaultValue={""}>Elegí una opción</option>
-                <option value="71" >Mantenimiento</option>
-                <option value="81" >Administrativo</option>
-                <option value="91" >Operación A</option>
-                <option value="92" >Operación B</option>
-            </select>
-        );
     }
 
     return(
@@ -150,7 +95,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 value={category}
                                 onChange={(e) => { setCategory(e.target.value); handleChange() }}>
                                     <option defaultValue={""}>Elegí una opción</option>
-                                    <option className="disOpt" disabled><strong>CONVENIO GENERAL</strong></option>
+                                    <option className="disOpt" disabled>CONVENIO GENERAL</option>
                                     <option value="11" >Maestranza A</option>
                                     <option value="12" >Maestranza B</option>
                                     <option value="13" >Maestranza C</option>
@@ -172,11 +117,46 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                     <option value="62" >Vendedor B</option>
                                     <option value="63" >Vendedor C</option>
                                     <option value="64" >Vendedor D</option>
-                                    <option className="disOpt" disabled><strong>CONVENIO CALL CENTER</strong></option>
+                                    <option className="disOpt" disabled>CONVENIO CALL CENTER</option>
                                     <option value="71" >Mantenimiento</option>
                                     <option value="81" >Administrativo</option>
                                     <option value="91" >Operación A</option>
                                     <option value="92" >Operación B</option>
+                                    <option className="disOpt" disabled>CONVENIO TURISMO</option>
+                                    <option value="101">Supervisor A1</option>
+                                    <option value="102">Administrativo 1° A2</option>
+                                    <option value="103">Administrativo 2° A3</option>
+                                    <option value="104">Recepcionista A4</option>
+                                    <option value="105">Cadete A5</option>
+                                    <option value="106">Maestranza A6</option>
+                                    <option value="111">Supervisor B1</option>
+                                    <option value="112">Vendedor 1° B2</option>
+                                    <option value="113">Vendedor 1° B3</option>
+                                    <option value="114">Promotor B4</option>
+                                    <option value="121">Supervisor C1</option>
+                                    <option value="122">Auxiliar 1° C2</option>
+                                    <option value="123">Auxiliar 2° C3</option>
+                                    <option value="124">Conductor-Guía C4</option>
+                                    <option value="125">Encargado de Vehículo C5</option>
+                                    <option value="131">Desarrollador Principiante D1A</option>
+                                    <option value="132">Desarrollador Junior D1B</option>
+                                    <option value="133">Desarrollador Semi Senior D1C</option>
+                                    <option value="134">Desarrollador Senior D1D</option>
+                                    <option value="141">Infraestructura Principiante D2A</option>
+                                    <option value="142">Infraestructura Junior D2B</option>
+                                    <option value="143">Infraestructura Semi Senior D2C</option>
+                                    <option value="144">Infraestructura Senior D2D</option>
+                                    <option value="151">Prod. Téc. Principiante D3A</option>
+                                    <option value="152">Prod. Téc. Junior D3B</option>
+                                    <option value="153">Prod. Téc. Semi Senior D3C</option>
+                                    <option value="154">Prod. Téc. Senior D3D</option>
+                                    <option value="161">Mkt. Online Principiante D4A</option>
+                                    <option value="162">Mkt. Online Junior D4B</option>
+                                    <option value="163">Mkt. Online Semi Senior D4C</option>
+                                    <option value="164">Mkt. Online Senior D4D</option>
+                                    <option value="171">Supervisor D5</option>
+                                    <option value="181">Operador E1</option>
+                                    <option value="182">Operador E2</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -434,6 +414,15 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 id="base"
                                 placeholder="Ingresá tu sueldo base (Opcional)"
                                 onChange={(e) => { setBase(e.target.value); handleChange() }}></input>
+                            </div>
+                            <div class="col">
+                                <h4>Adicional Kilómetros</h4>
+                                <input
+                                type="number"
+                                class="form-control text-center"
+                                id="km"
+                                placeholder="Ingresá la cantidad de Km (Opcional)"
+                                onChange={(e) => { setKm(e.target.value); handleChange() }}></input>
                             </div>
                         </div>
                     </div>

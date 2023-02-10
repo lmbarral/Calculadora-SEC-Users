@@ -49,6 +49,20 @@ const ShowData = ({neto}) => {
     const agui = neto.agui;
     const month = neto.month;
     const adEmpresaM = neto.adEmpresaM || false;
+    const ACU21 = neto.ACU21 || false;
+    const ACU9 = neto.ACU21 || false;
+    const FIJA = neto.FIJA || false;
+    const ACU21KM = neto.ACU21KM || false;
+    const ACU9KM = neto.ACU9KM || false;
+    const FIJAKM = neto.FIJAKM || false;
+    const pBase = neto.pBase || false;
+    const RACU21 = neto.RACU21 || false;
+    const RFIJA = neto.RFIJA || false;
+    const RACU9 = neto.RACU9 || false;
+    const RACU21KM = neto.RACU21KM || false;
+    const RFIJAKM = neto.RFIJAKM || false;
+    const RACU9KM = neto.RACU9KM || false;
+    const RKM = neto.RKM || false;
 
     const antFixed = (ant*100).toFixed(0);
     
