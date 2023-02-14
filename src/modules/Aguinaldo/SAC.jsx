@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './SAC.css';
+import Math from "../Math/Math";
 
 const SAC = ({handleClick3}) => {
 
@@ -1191,6 +1192,10 @@ const SAC = ({handleClick3}) => {
     const [agui, setAgui] = useState("");
     const [error, setError] = useState(true);
 
+    var neto = {};
+    const os = "", extras50 = "", extras100 = "", feriados = "", vacaciones = "", adEmpresa = "", km = "", AG = true;
+    const data = {category, month, ant, jornada, base, os, extras50, extras100, feriados, vacaciones, adEmpresa, km, AG}
+
     var JOR = 0, ANT = 0, PRES = 0, SUM = 0, AGUI = 0, sBase = 0;
 
     const handleSubmit = e => {
@@ -1198,13 +1203,9 @@ const SAC = ({handleClick3}) => {
         if(!category || !month || !ant || !jornada || category === "" || month === "" || ant === "" || jornada === "") {
             return;
         }
-        if(base === ""){ sBase = SALARIOS[category][month].salarioBase} else { sBase = Number(base)};
-        JOR = sBase * (Number(jornada)/8);
-        ANT = JOR * Number(ant);
-        PRES = (JOR + ANT) * 0.08333;
-        SUM = JOR + ANT + PRES;
-        AGUI = SUM/2
-        setAgui(AGUI);
+        neto = Math(data);
+        console.log(neto)
+        setAgui(neto.AGUI);
     }
 
     const handleErrase = () => {
@@ -1229,12 +1230,12 @@ const SAC = ({handleClick3}) => {
                     <h2>Calculadora de Aguinaldo (SAC)</h2>
                 </div>
                 <form onSubmit={handleSubmit}>
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col">
+                <div className="container text-center">
+                    <div className="row">
+                        <div className="col">
                             <h4>Categoría</h4>
                             <select
-                            class="form-select text-center"
+                            className="form-select text-center"
                             type="text"
                             name="Category"
                             required
@@ -1242,6 +1243,7 @@ const SAC = ({handleClick3}) => {
                             value={category}
                             onChange={(e) => { setCategory(e.target.value)}}>
                                 <option defaultValue={""}>Elegí una opción</option>
+                                <option className="disOpt" disabled>CONVENIO GENERAL</option>
                                 <option value="11" >Maestranza A</option>
                                 <option value="12" >Maestranza B</option>
                                 <option value="13" >Maestranza C</option>
@@ -1263,12 +1265,52 @@ const SAC = ({handleClick3}) => {
                                 <option value="62" >Vendedor B</option>
                                 <option value="63" >Vendedor C</option>
                                 <option value="64" >Vendedor D</option>
+                                <option className="disOpt" disabled>CONVENIO CALL CENTER</option>
+                                <option value="71" >Mantenimiento</option>
+                                <option value="81" >Administrativo</option>
+                                <option value="91" >Operación A</option>
+                                <option value="92" >Operación B</option>
+                                <option className="disOpt" disabled>CONVENIO TURISMO</option>
+                                <option value="101">Supervisor A1</option>
+                                <option value="102">Administrativo 1° A2</option>
+                                <option value="103">Administrativo 2° A3</option>
+                                <option value="104">Recepcionista A4</option>
+                                <option value="105">Cadete A5</option>
+                                <option value="106">Maestranza A6</option>
+                                <option value="111">Supervisor B1</option>
+                                <option value="112">Vendedor 1° B2</option>
+                                <option value="113">Vendedor 1° B3</option>
+                                <option value="114">Promotor B4</option>
+                                <option value="121">Supervisor C1</option>
+                                <option value="122">Auxiliar 1° C2</option>
+                                <option value="123">Auxiliar 2° C3</option>
+                                <option value="124">Conductor-Guía C4</option>
+                                <option value="125">Encargado de Vehículo C5</option>
+                                <option value="131">Desarrollador Principiante D1A</option>
+                                <option value="132">Desarrollador Junior D1B</option>
+                                <option value="133">Desarrollador Semi Senior D1C</option>
+                                <option value="134">Desarrollador Senior D1D</option>
+                                <option value="141">Infraestructura Principiante D2A</option>
+                                <option value="142">Infraestructura Junior D2B</option>
+                                <option value="143">Infraestructura Semi Senior D2C</option>
+                                <option value="144">Infraestructura Senior D2D</option>
+                                <option value="151">Prod. Téc. Principiante D3A</option>
+                                <option value="152">Prod. Téc. Junior D3B</option>
+                                <option value="153">Prod. Téc. Semi Senior D3C</option>
+                                <option value="154">Prod. Téc. Senior D3D</option>
+                                <option value="161">Mkt. Online Principiante D4A</option>
+                                <option value="162">Mkt. Online Junior D4B</option>
+                                <option value="163">Mkt. Online Semi Senior D4C</option>
+                                <option value="164">Mkt. Online Senior D4D</option>
+                                <option value="171">Supervisor D5</option>
+                                <option value="181">Operador E1</option>
+                                <option value="182">Operador E2</option>
                             </select>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <h4>Mes de Cálculo</h4>
                             <select
-                            class="form-select text-center"
+                            className="form-select text-center"
                             type="text"
                             name="month"
                             //required
@@ -1291,10 +1333,10 @@ const SAC = ({handleClick3}) => {
                                 <option value="202204" >Abr.2022</option>
                             </select>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <h4>Años de Antigüedad</h4>
                             <select
-                            class="form-select text-center"
+                            className="form-select text-center"
                             type="number"
                             name="ant"
                             required
@@ -1357,12 +1399,12 @@ const SAC = ({handleClick3}) => {
                         </div>
                     </div>
                 </div>
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col">
+                <div className="container text-center">
+                    <div className="row">
+                        <div className="col">
                             <h4>Jornada</h4>
                             <select
-                            class="form-select text-center"
+                            className="form-select text-center"
                             type="number"
                             name="jornada"
                             required
@@ -1370,20 +1412,53 @@ const SAC = ({handleClick3}) => {
                             value={jornada}
                             onChange={(e) => { setJornada(e.target.value)}}>
                                 <option defaultValue={""}>Elegí una opción</option>
-                                <option value={4} >1/2 jornada (4hs)</option>
-                                <option value={5} >5 hs.</option>
-                                <option value={5.333} >2/3 Jornada</option>
-                                <option value={6} >6 hs.</option>
-                                <option value={8}>Jornada Completa (8hs)</option>
+                                <option value="48">Completa (48 hs)</option>
+                                    <option value="47">47 hs</option>
+                                    <option value="46">46 hs</option>
+                                    <option value="45">45 hs</option>
+                                    <option value="44">44 hs</option>
+                                    <option value="43">43 hs</option>
+                                    <option value="42">42 hs</option>
+                                    <option value="40">40 hs</option>
+                                    <option value="39">39 hs</option>
+                                    <option value="38">38 hs</option>
+                                    <option value="37">37 hs</option>
+                                    <option value="36">36 hs</option>
+                                    <option value="35">35 hs</option>
+                                    <option value="34">34 hs</option>
+                                    <option value="33">33 hs</option>
+                                    <option value="32">32 hs (dos tercios)</option>
+                                    <option value="31">31 hs</option>
+                                    <option value="30">30 hs</option>
+                                    <option value="29">29 hs</option>
+                                    <option value="28">28 hs</option>
+                                    <option value="27">27 hs</option>
+                                    <option value="26">26 hs</option>
+                                    <option value="25">25 hs</option>
+                                    <option value="24">24 hs (media)</option>
+                                    <option value="23">23 hs</option>
+                                    <option value="22">22 hs</option>
+                                    <option value="21">21 hs</option>
+                                    <option value="20">20 hs</option>
+                                    <option value="19">19 hs</option>
+                                    <option value="18">18 hs</option>
+                                    <option value="17">17 hs</option>
+                                    <option value="16">16 hs</option>
+                                    <option value="15">15 hs</option>
+                                    <option value="14">14 hs</option>
+                                    <option value="13">13 hs</option>
+                                    <option value="12">12 hs</option>
+                                    <option value="11">11 hs</option>
+                                    <option value="10">10 hs</option>
                             </select>
                         </div>
                     </div>
                 </div>    
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col">
+                <div className="container text-center">
+                    <div className="row">
+                        <div className="col">
                             <h4>Sueldo Base</h4>
-                            <input type="number" class="form-control text-center" id="base" placeholder="Ingresá tu sueldo base (Opcional)" onChange={(e) => { setBase(e.target.value)}}></input>
+                            <input type="number" className="form-control text-center" id="base" placeholder="Ingresá tu sueldo base (Opcional)" onChange={(e) => { setBase(e.target.value)}}></input>
                         </div>
                     </div>
                 </div>
@@ -1392,14 +1467,14 @@ const SAC = ({handleClick3}) => {
                         <div className="extras-50"><h2 className="Sub-h2">Total Aguinaldo Base: ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(agui)}</h2></div>
                     </div>
                 <div className="Selector">
-                    <div class="d-grid gap-2">
-                            <button class="btn btn-success" type="submit" onClick={handleSubmit}>Simular</button>
+                    <div className="d-grid gap-2">
+                            <button className="btn btn-success" type="submit" onClick={handleSubmit}>Simular</button>
                         </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
+                        <div className="d-grid gap-2">
+                            <button className="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
                         </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="reset" onClick={handleClosure}>Cerrar Calculadora</button>
+                        <div className="d-grid gap-2">
+                            <button className="btn btn-primary" type="reset" onClick={handleClosure}>Cerrar Calculadora</button>
                         </div>
                 </div>
             </div>

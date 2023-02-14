@@ -3,7 +3,7 @@ import ADICIONALES from "./Ads";
 
 const Math = (form) => {
 
-    console.log({form})
+    //console.log({form})
 
     const SALS = SALARIOS;
     const ADS = ADICIONALES;
@@ -94,7 +94,7 @@ const Math = (form) => {
 
     if(!Number(base)){ sBase = SALS[category][month].salarioBase} else { sBase = Number(base)};
     m = SALS[category][month].mes;
-    if(SALS[category][month].sac === true) agui = true; else agui = false;
+    if(SALS[category][month].sac === true || form.AG === true) agui = true; else agui = false;
     if(feriados === "Elegí una opción") feriadosM = 0; else feriadosM = feriados;
     if(vacaciones === "Elegí una opción") vacacionesM = 0; else vacacionesM = vacaciones;
     if(adEmpresa === "") adEmpresaM = false; else adEmpresaM = adEmpresa;
@@ -117,7 +117,7 @@ const Math = (form) => {
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;
-    console.log(neto)
+    //console.log(neto)
     return neto;
 }
 

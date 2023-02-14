@@ -47,16 +47,16 @@ const Extras = ({handleClick2}) => {
                     <h2 className="Extras-Title">CALCULADORA DE HORAS EXTRAS</h2>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col">
+                    <div className="container text-center">
+                        <div className="row">
+                            <div className="col">
                                 <h4>Sueldo Base + Presentismo</h4>
-                                <input type="number" class="form-control text-center" id="base" placeholder="Ingresá el valor acá" onChange={(e) => { setBase(e.target.value) }}></input>
+                                <input type="number" className="form-control text-center" id="base" placeholder="Ingresá el valor acá" onChange={(e) => { setBase(e.target.value) }}></input>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Años de Antigüedad</h4>
                                 <select
-                                class="form-select text-center"
+                                className="form-select text-center"
                                 type="number"
                                 name="ant"
                                 required
@@ -118,21 +118,21 @@ const Extras = ({handleClick2}) => {
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
+                        <div className="row">
+                            <div className="col">
                                 <h4>Horas Extras al 50%</h4>
                                 <input type="number"
-                                class="form-control text-center"
+                                className="form-control text-center"
                                 id="extras50"
                                 //autoFocus
                                 placeholder="Cant. de Horas Extras"
                                 value={extras50}
                                 onChange={(e) => { setExtras50(e.target.value) }}></input>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Horas Extras al 100%</h4>
                                 <input type="number"
-                                class="form-control text-center"
+                                className="form-control text-center"
                                 id="extras100"
                                 //autoFocus
                                 placeholder="Cant. de Horas Extras"
@@ -146,14 +146,14 @@ const Extras = ({handleClick2}) => {
                         <div className="extras-100"><h2 className="Sub-h2">Total Extras al 100%: ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(EX100)}</h2></div>
                     </div>
                     <div className="Selector">
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-success" type="submit" onClick={handleSubmit}>Simular</button>
+                        <div className="d-grid gap-2">
+                            <button className="btn btn-success" type="submit" onClick={handleSubmit}>Simular</button>
                         </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
+                        <div className="d-grid gap-2">
+                            <button className="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
                         </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="reset" onClick={handleClosure}>Cerrar Calculadora</button>
+                        <div className="d-grid gap-2">
+                            <button className="btn btn-primary" type="reset" onClick={handleClosure}>Cerrar Calculadora</button>
                         </div>
                     </div>
                 </form>

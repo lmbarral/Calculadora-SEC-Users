@@ -441,6 +441,8 @@ const ShowData = ({neto}) => {
         pdf.save(`Recibo-SEC_${CATEGORÍAS[CAT]}_${month}`);
         //let pdfOutput = pdf.output();
         //console.log(pdfOutput)
+        setName("");
+        setEmail("");
     };
 
     return(
@@ -452,7 +454,7 @@ const ShowData = ({neto}) => {
                     </div>
                 </div>
                 <div className="table-responsive" ref={componentRef}>
-                    <table class="table table-bordered" id="recibo">
+                    <table className="table table-bordered" id="recibo">
                         <thead>
                             <tr>
                                 <th colSpan={5} className="Title">
@@ -613,32 +615,32 @@ const ShowData = ({neto}) => {
                     </table>
                 </div>
                 <div className="Selector">
-                    <div class="d-grid gap-2">
+                    <div className="d-grid gap-2">
                         <div className="Selector-style">
                             <h3>¿Querés imprimir la simulación?</h3>
                             <h2>¡Completá el formulario y nosotros te lo enviamos!</h2>
                         </div>
                         <form>
-                            <div class="mb-3">
-                                <label class="form-label">Nombre</label>
+                            <div className="mb-3">
+                                <label className="form-label">Nombre</label>
                                 <input
                                     type="name"
-                                    class="form-control"
+                                    className="form-control"
                                     id="exampleInputPassword1"
                                     required
                                     onChange={(e) => { setName(e.target.value) }}
                                 />
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Dirección de Correo Electrónico</label>
+                            <div className="mb-3">
+                                <label className="form-label">Dirección de Correo Electrónico</label>
                                 <input
                                     type={"email"}
-                                    class="form-control"
+                                    className="form-control"
                                     id="exampleInputEmail1"
                                     required
                                     onChange={(e) => { setEmail(e.target.value) }}
                                 />
-                                <div id="emailHelp" class="form-text">Jamás compartiremos este correo con terceros.</div>
+                                <div id="emailHelp" className="form-text">Jamás compartiremos este correo con terceros.</div>
                             </div>
                         </form>
                         <button class="btn" className="btn-config" type="submit" onClick={handleExport}>Imprimir Simulación</button>

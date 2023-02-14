@@ -20,7 +20,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const [state, setState] = useState(false);
     const [error, setError] = useState(true);
 
-    console.log(data)
+    //console.log(data)
 
     //const [g, setG] = useState(true);
     //const [c, setC] = useState(false);
@@ -82,12 +82,12 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                     <h2>CALCULADORA DE SUELDO SEC</h2>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col">
+                    <div className="container text-center">
+                        <div className="row">
+                            <div className="col">
                                 <h4>Categoría</h4>
                                 <select
-                                class="form-select text-center"
+                                className="form-select text-center"
                                 type="text"
                                 name="Category"
                                 required
@@ -159,10 +159,10 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                     <option value="182">Operador E2</option>
                                 </select>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Mes de Cálculo</h4>
                                 <select
-                                class="form-select text-center"
+                                className="form-select text-center"
                                 type="text"
                                 name="month"
                                 //required
@@ -185,10 +185,10 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                     <option value="202204" >Abr.2022</option>
                                 </select>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Años de Antigüedad</h4>
                                 <select
-                                class="form-select text-center"
+                                className="form-select text-center"
                                 type="number"
                                 name="ant"
                                 required
@@ -251,12 +251,12 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                             </div>
                         </div>
                     </div>
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col">
+                    <div className="container text-center">
+                        <div className="row">
+                            <div className="col">
                                 <h4>Jornada</h4>
                                 <select
-                                class="form-select text-center"
+                                className="form-select text-center"
                                 type="number"
                                 name="jornada"
                                 required
@@ -304,10 +304,10 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                     <option value="10">10 hs</option>
                                 </select>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Feriados Trabajados</h4>
                                 <select
-                                class="form-select text-center"
+                                className="form-select text-center"
                                 type="number"
                                 name="feriados"
                                 required
@@ -327,10 +327,10 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                     <option value={10}>10</option>
                                 </select>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Días de Vacaciones</h4>
                                 <select
-                                class="form-select text-center"
+                                className="form-select text-center"
                                 type="number"
                                 name="vacaciones"
                                 required
@@ -372,31 +372,31 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                             </div>
                         </div>
                     </div>
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col">
+                    <div className="container text-center">
+                        <div className="row">
+                            <div className="col">
                                 <h4>Horas Extras al 50%</h4>
                                 <input
                                 type="number"
-                                class="form-control text-center"
+                                className="form-control text-center"
                                 id="extras50"
                                 placeholder="Cant. de Horas Extras"
                                 value={extras50}
                                 onChange={(e) => { setExtras50(e.target.value); handleChange() }}></input>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Horas Extras al 100%</h4>
                                 <input type="number"
-                                class="form-control text-center"
+                                className="form-control text-center"
                                 id="extras100"
                                 placeholder="Cant. de Horas Extras"
                                 value={extras100}
                                 onChange={(e) => { setExtras100(e.target.value); handleChange() } }></input>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Adicional Empresa</h4>
                                 <input type="number"
-                                class="form-control text-center"
+                                className="form-control text-center"
                                 id="adEmpresa"
                                 placeholder="(Opcional)"
                                 value={adEmpresa}
@@ -404,36 +404,36 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                             </div>
                         </div>
                     </div>
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col">
+                    <div className="container text-center">
+                        <div className="row">
+                            <div className="col">
                                 <h4>Sueldo Base</h4>
                                 <input
                                 type="number"
-                                class="form-control text-center"
+                                className="form-control text-center"
                                 id="base"
                                 placeholder="Ingresá tu sueldo base (Opcional)"
                                 onChange={(e) => { setBase(e.target.value); handleChange() }}></input>
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <h4>Adicional Kilómetros</h4>
                                 <input
                                 type="number"
-                                class="form-control text-center"
+                                className="form-control text-center"
                                 id="km"
                                 placeholder="Ingresá la cantidad de Km (Opcional)"
                                 onChange={(e) => { setKm(e.target.value); handleChange() }}></input>
                             </div>
                         </div>
                     </div>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-success" type="submit" onClick={handleChange}>Simular</button>
+                    <div className="d-grid gap-2">
+                        <button className="btn btn-success" type="submit" onClick={handleChange}>Simular</button>
                     </div>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
+                    <div className="d-grid gap-2">
+                        <button className="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
                     </div>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="reset" onClick={handleClosure}>Cerrar Calculadora</button>
+                    <div className="d-grid gap-2">
+                        <button className="btn btn-primary" type="reset" onClick={handleClosure}>Cerrar Calculadora</button>
                     </div>
                 </form>
             </div>
