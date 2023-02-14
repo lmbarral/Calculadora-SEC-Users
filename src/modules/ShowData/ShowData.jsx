@@ -49,6 +49,7 @@ const ShowData = ({neto}) => {
     const agui = neto.agui;
     const month = neto.month;
     const adEmpresaM = neto.adEmpresaM || false;
+    const km = neto.km || false;
     const ACU21 = neto.ACU21 || false;
     const ACU9 = neto.ACU21 || false;
     const FIJA = neto.FIJA || false;
@@ -63,6 +64,16 @@ const ShowData = ({neto}) => {
     const RFIJAKM = neto.RFIJAKM || false;
     const RACU9KM = neto.RACU9KM || false;
     const RKM = neto.RKM || false;
+    const BASEKM = neto.BASEKM || false;
+    const TUR = neto.TUR || false;
+    const ACU21KM100 = neto.ACU21KM100 || false;
+    const FIJAKM100 = neto.FIJAKM100 || false;
+    const ACU9KM100 = neto.ACU9KM100 || false;
+    const RACU21KM100 = neto.RACU21KM100 || false;
+    const RFIJAKM100 = neto.RFIJAKM00 || false;
+    const RACU9KM100 = neto.RACU9KM100 || false;
+    const kmm100 = neto.KMM100 || false;
+    const kmp100 = neto.KMP100 || false;
 
     const antFixed = (ant*100).toFixed(0);
     
@@ -88,6 +99,44 @@ const ShowData = ({neto}) => {
         "62": "Vendedor B",
         "63": "Vendedor C",
         "64": "Vendedor D",
+        "71": "Mantenimiento",
+        "81": "Administrativo",
+        "91": "Operación A",
+        "92": "Operación B",
+        "101": "Supervisor A1",
+        "102": "Administrativo 1° A2",
+        "103": "Administrativo 2° A3",
+        "104": "Recepcionista A4",
+        "105": "Cadete A5",
+        "106": "Maestranza A6",
+        "111": "Supervisor B1",
+        "112": "Vendedor 1° B2",
+        "113": "Vendedor 1° B3",
+        "114": "Promotor B4",
+        "121": "Supervisor C1",
+        "122": "Auxiliar 1° C2",
+        "123": "Auxiliar 2° C3",
+        "124": "Conductor-Guía C4",
+        "125": "Encargado de Vehículo C5",
+        "131": "Desarrollador Principiante D1A",
+        "132": "Desarrollador Junior D1B",
+        "133": "Desarrollador Semi Senior D1C",
+        "134": "Desarrollador Senior D1D",
+        "141": "Infraestructura Principiante D2A",
+        "142": "Infraestructura Junior D2B",
+        "143": "Infraestructura Semi Senior D2C",
+        "144": "Infraestructura Senior D2D",
+        "151": "Prod. Téc. Principiante D3A",
+        "152": "Prod. Téc. Junior D3B",
+        "153": "Prod. Téc. Semi Senior D3C",
+        "154": "Prod. Téc. Senior D3D",
+        "161": "Mkt. Online Principiante D4A",
+        "162": "Mkt. Online Junior D4B",
+        "163": "Mkt. Online Semi Senior D4C",
+        "164": "Mkt. Online Senior D4D",
+        "171": "Supervisor D5",
+        "181": "Operador E1",
+        "182": "Operador E2",
     };
 
     const ANTG = () => {
@@ -190,6 +239,136 @@ const ShowData = ({neto}) => {
                     <td>-</td>
                     <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM)}</td>
                     <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACU21T = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Acuerdo No Rem. 21%</th>
+                <td>{ACU21 * 100}%</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU21)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACU9T = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Acuerdo No Rem. 9%</th>
+                <td>{ACU9 * 100}%</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU9)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const FIJAT = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Suma Fija Acuerdo</th>
+                <td>-</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RFIJA)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const PBASET = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Base Adicional KM</th>
+                <td>{kmm100} kms</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(BASEKM)}</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACU21KMT = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Acuerdo No Rem. 21% Adicional KM (Hasta 100 Km)</th>
+                <td>{ACU21KM * 100}%</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU21KM)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACU9KMT = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Acuerdo No Rem. 9% Adicional KM (Hasta 100 Km)</th>
+                <td>{ACU9KM * 100}%</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU9KM)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const FIJAKMT = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Suma Fija Acuerdo Adicional KM (Hasta 100 Km)</th>
+                <td>{kmm100} kms</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RFIJAKM)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACU21KMT100 = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Acuerdo No Rem. 21% Adicional KM (Más de 100 Km)</th>
+                <td>{ACU21KM * 100}%</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU21KM100)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACU9KMT100 = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Acuerdo No Rem. 9% Adicional KM (Más de 100 Km)</th>
+                <td>{kmp100} kms</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU9KM100)}</td>
+                <td>-</td>
+            </tr>
+        );
+    }
+
+    const FIJAKMT100 = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Suma Fija Acuerdo Adicional KM (Más de 100 Km)</th>
+                <td>{kmp100} kms</td>
+                <td>-</td>
+                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RFIJAKM100)}</td>
+                <td>-</td>
             </tr>
         );
     }
@@ -318,6 +497,36 @@ const ShowData = ({neto}) => {
                             <>
                                 {adEmpresaM && <ADEMPRESA />}
                             </>
+                            <>
+                                {ACU21 && <ACU21T />}
+                            </>
+                            <>
+                                {ACU9 && <ACU9T />}
+                            </>
+                            <>
+                                {FIJA && <FIJAT />}
+                            </>
+                            <>
+                                {pBase && <PBASET />}
+                            </>
+                            <>
+                                {ACU21KM && <ACU21KMT />}
+                            </>
+                            <>
+                                {ACU9KM && <ACU9KMT />}
+                            </>
+                            <>
+                                {FIJAKM && <FIJAKMT />}
+                            </>
+                            <>
+                                {ACU21KM100 && <ACU21KMT100 />}
+                            </>
+                            <>
+                                {ACU9KM100 && <ACU9KMT100 />}
+                            </>
+                            <>
+                                {FIJAKM100 && <FIJAKMT100 />}
+                            </>
                             <tr>
                                 <th scope="row" className="Col-left">Presentismo</th>
                                     <td>8,33%</td>
@@ -386,7 +595,7 @@ const ShowData = ({neto}) => {
                             <tr>
                                 <th scope="row" colSpan={2}>Totales Parciales</th>
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(SUM + AGUI)}</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM + TUR)}</td>
                                 <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RES + NRES)}</td>
                             </tr>
                             <tr>

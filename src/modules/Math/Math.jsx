@@ -7,7 +7,7 @@ const Math = (form) => {
 
     const SALS = SALARIOS;
     const ADS = ADICIONALES;
-    var sBase = 0, m = 0, agui = false, feriadosM = 0, vacacionesM = 0, adEmpresaM = 0, ACU21 = 0, ACU9 = 0, FIJA = 0, ACU21KM = 0, ACU9KM = 0, FIJAKM = 0, pBase = 0;
+    var sBase = 0, m = 0, agui = false, feriadosM = 0, vacacionesM = 0, adEmpresaM = 0, ACU21 = 0, ACU9 = 0, FIJA = 0, ACU21KM = 0, ACU9KM = 0, FIJAKM = 0, pBase = 0, ACU21KM100 = 0, ACU9KM100 = 0, FIJAKM100 = 0, PBASE100 = 0;
     var params = {}, neto = {};
 
     if(!form || form === undefined) return;
@@ -26,9 +26,9 @@ const Math = (form) => {
 
     const resultados = ({params}) => {
 
-        const {sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM, km, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase} = params || 0;
+        const {sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM, km, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, ACU21KM100, ACU9KM100, FIJAKM100, PBASE100} = params || 0;
 
-        var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0, RACU21 = 0, RACU9 = 0, RFIJA = 0, RACU21KM = 0, RACU9KM = 0, RFIJAKM = 0, RKM = 0;
+        var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0, RACU21 = 0, RACU9 = 0, RFIJA = 0, RACU21KM = 0, RACU9KM = 0, RFIJAKM = 0, RKM = 0, RACU21KM100 = 0, RFIJAKM100 = 0, RACU9KM100 = 0, BASEKM = 0, TUR = 0, KMM100 = 0, KMP100 = 0;
 
         /*INICIO HABERES*/
         /*REMUNERATIVO*/
@@ -41,17 +41,33 @@ const Math = (form) => {
         EX100 = ((JOR + PRES)/192)*2*Number(extras100);
         /*REMUNERATIVO TURISMO*/
         RACU21 = JOR * Number(ACU21);
-        RFIJA = FIJA;
+        RFIJA = Number(FIJA);
         RACU9 = (JOR + RACU21 + FIJA) * Number(ACU9);
-        RACU21KM = pBase * Number(ACU21KM);
-        RFIJAKM = FIJAKM
-        RACU9KM = JOR * Number(ACU9KM);
-        RKM = km * (RACU21KM + RFIJAKM + RACU9KM);
+        if(Number(km) <= 100) {
+            RACU21KM = Number(pBase) * Number(ACU21KM) * Number(km);
+            RFIJAKM = Number(FIJAKM) * Number(km);
+            RACU9KM = Number(pBase) * Number(ACU9KM) * Number(km);
+            BASEKM = Number(km) * Number(pBase);
+            KMM100 = Number(km);
+        };
+        if(Number(km) > 100) {
+            BASEKM = (Number(pBase) * 100) + (Number(PBASE100) * (Number(km) - 100));
+            RACU21KM = Number(pBase) * Number(ACU21KM) * 100;
+            RFIJAKM = Number(FIJAKM) * 100;
+            RACU9KM = Number(pBase) * Number(ACU9KM) * 100;
+            RACU21KM100 = Number(PBASE100) * Number(ACU21KM100) * (Number(km) - 100);
+            RFIJAKM100 = Number(FIJAKM100) * ((Number(km) - 100));
+            RACU9KM100 = Number(PBASE100) * Number(ACU9KM100) * (Number(km) - 100);
+            KMM100 = 100;
+            KMP100 = Number(km) - 100;
+        }
+        RKM = RACU21KM + RACU9KM + RFIJAKM + RACU21KM100 + RFIJAKM100 + RACU9KM100; 
         /*TOTALES PARCIALES*/
-        SUM = JOR + FER + ANT + VAC + PRES + EX50 + EX100 + Number(adEmpresaM) + RACU21 + RFIJA + RACU9 + RACU21KM + RFIJAKM + RACU9KM + RKM;
+        SUM = JOR + FER + ANT + VAC + PRES + EX50 + EX100 + Number(adEmpresaM);
         if(agui === false) AGUI = 0; else AGUI = SUM/2;
         /*NO REMUNERATIVO*/
         AUM = JOR * m;
+        TUR = RACU21 + RFIJA + RACU9 + Number(RKM);
         /*FIN HABERES*/
 
         /*INICIO DEDUCCIONES*/
@@ -71,9 +87,9 @@ const Math = (form) => {
         /*FIN DEDUCCIONES*/
         
         /*TOTAL*/
-        TOTAL = SUM + AGUI + AUM - RES - NRES;
+        TOTAL = SUM + AGUI + AUM + TUR - RES - NRES;
 
-        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, RACU21, RFIJA, RACU9, RACU21KM, RFIJAKM, RACU9KM, RKM};
+        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, RACU21, RFIJA, RACU9, RACU21KM, RFIJAKM, RACU9KM, RKM, km, BASEKM, TUR, ACU21KM100, FIJAKM100, ACU9KM100, RACU21KM100, RFIJAKM100, RACU9KM100, KMM100, KMP100};
     }
 
     if(!Number(base)){ sBase = SALS[category][month].salarioBase} else { sBase = Number(base)};
@@ -88,12 +104,16 @@ const Math = (form) => {
     FIJA = SALS[category][month].fija || 0;
     if(category === "124" || category === "125") {
         //DESARROLLAR LÓGICA PARA m100 y p100
-        ACU21KM = ADS[category][month].acu21 || 0;
-        ACU9KM = ADS[category][month].acu9 || 0;
-        FIJAKM = ADS[category][month].fija || 0;
-        pBase = ADS[category][month].pBase || 0;
+        ACU21KM = ADS[category]["m100"][month].acu21;
+        ACU9KM = ADS[category]["m100"][month].acu9;
+        FIJAKM = ADS[category]["m100"][month].fija;
+        pBase = ADS[category]["m100"][month].pBase;
+        ACU21KM100 = ADS[category]["p100"][month].acu21
+        ACU9KM100 = ADS[category]["p100"][month].acu9
+        FIJAKM100 = ADS[category]["p100"][month].fija
+        PBASE100 = ADS[category]["p100"][month].pBase
     }
-    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, agui, month, adEmpresaM, km, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase}
+    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, agui, month, adEmpresaM, km, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, ACU21KM100, ACU9KM100, FIJAKM100, PBASE100}
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;
