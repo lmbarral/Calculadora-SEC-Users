@@ -20,6 +20,14 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const [state, setState] = useState(false);
     const [error, setError] = useState(true);
 
+    const thisRef = useRef();
+
+    useEffect(() => {
+        if (thisRef.current) {
+          thisRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
     //console.log(data)
 
     //const [g, setG] = useState(true);
@@ -76,7 +84,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     }
 
     return(
-        <section id="calculator">
+        <section id="calculator" ref={thisRef}>
             <div className="Calculator">
                 <div className="Pre-Calculator-title">
                     <h2>CALCULADORA DE SUELDO SEC</h2>

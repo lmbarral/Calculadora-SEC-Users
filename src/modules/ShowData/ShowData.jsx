@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import './ShowData.css';
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -8,12 +8,18 @@ const ShowData = ({neto}) => {
 
     
     const componentRef = useRef();
+    const thisRef = useRef();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [user, setUser] = useState({});
 
     //console.log(neto)
-
+    useEffect(() => {
+        if (thisRef.current) {
+          thisRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+    
     if(!neto) return;
     const TOTAL = neto.TOTAL;
     const AUM = neto.AUM || false;
@@ -74,7 +80,7 @@ const ShowData = ({neto}) => {
     const RACU9KM100 = neto.RACU9KM100 || false;
     const kmm100 = neto.KMM100 || false;
     const kmp100 = neto.KMP100 || false;
-
+    
     const antFixed = (ant*100).toFixed(0);
     
     const CATEGORÍAS = {
@@ -448,12 +454,12 @@ const ShowData = ({neto}) => {
     return(
         <section id="ShowData">
             <div className="ShowData_Style">
-                <div className="Recibo">
+                <div className="Recibo" ref={thisRef}>
                     <div className="neto">
                         <h1 className="neto">Total: ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(TOTAL)}</h1>
                     </div>
                 </div>
-                <div className="table-responsive" ref={componentRef}>
+                <div className="table-responsive" ref={componentRef} >
                     <table className="table table-bordered" id="recibo">
                         <thead>
                             <tr>

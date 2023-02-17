@@ -1,8 +1,8 @@
-import React, { useRef, useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 import './Error.css';
 import { FaExclamation } from 'react-icons/fa'
 
-const Error = () => {
+const ErrorEx = () => {
 
     const componentRef = useRef();
     
@@ -23,7 +23,7 @@ const Error = () => {
                     </div>
                     <div class="col-9 bg-transparent">
                         <div className="text">
-                            <p className="Error-text">Los campos CATEGORÍA, MES DE CÁLCULO, AÑOS DE ANTIGÜEDAD y JORNADA deben completarse para realizar el cálculo.</p>
+                            <p className="Error-text">Los campos SUELDO BASE + PRESENTISMO, AÑOS DE ANTIGÜEDAD y, por lo menos, UN CAMPO DE HORAS EXTRAS deben completarse para realizar el cálculo.</p>
                         </div>
                     </div>
                 </div>
@@ -32,4 +32,4 @@ const Error = () => {
     );
 }
 
-export default Error
+export default ErrorEx

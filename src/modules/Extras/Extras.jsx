@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import './Extras.css';
 
-const Extras = ({handleClick2}) => {
+const Extras = ({handleClick2, pError}) => {
 
     const [base, setBase] = useState("");
     const [ant, setAnt] = useState("");
@@ -9,6 +9,14 @@ const Extras = ({handleClick2}) => {
     const [extras100, setExtras100] = useState("");
     const [EX50, setEX50] = useState(0);
     const [EX100, setEX100] = useState(0);
+    const [error, setError] = useState(true);
+    const thisRef = useRef();
+
+    useEffect(() => {
+        if (thisRef.current) {
+          thisRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
 
     const JOR = Number(base);
     const ANT = JOR * Number(ant);
@@ -16,10 +24,22 @@ const Extras = ({handleClick2}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if(!base && !ant) return;
-        if(base === "" && ant === "") return;
-        if(!extras50 && !extras100) return;
-        if(extras50 === "" && extras100 === "") return;
+        if(!base && !ant) {
+            pError(error);
+            return
+        };
+        if(base === "" && ant === "") {
+            pError(error);
+            return
+        };
+        if(!extras50 && !extras100) {
+            pError(error);
+            return
+        };
+        if(extras50 === "" && extras100 === "") {
+            pError(error);
+            return
+        };
         /*console.log(base, ant, extras50, extras100);*/
         setEX50(((JOR + PRES)/192)*1.5*Number(extras50));
         setEX100(((JOR + PRES)/192)*2*Number(extras100));
@@ -33,15 +53,19 @@ const Extras = ({handleClick2}) => {
         setExtras100("");
         setEX50("");
         setEX100("");
+        setError(false);
+        pError(error);
+        setError(current => !current);
     }
 
     const handleClosure = () => {
         handleClick2(false);
         handleErrase();
+        pError(false);
     }
 
     return(
-        <section id="extras">
+        <section id="extras" ref={thisRef}>
             <div className="Extras-style">
                 <div className="PreExtras">
                     <h2 className="Extras-Title">CALCULADORA DE HORAS EXTRAS</h2>

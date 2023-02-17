@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './App.css';
 import Nav from './modules/NavBar/Nav';
 import PreCalculator from './modules/PreCalculator/PreCalculator';
@@ -8,6 +8,7 @@ import Extras from './modules/Extras/Extras';
 import SAC from './modules/Aguinaldo/SAC';
 import Math from './modules/Math/Math';
 import Error from './modules/Error/Error';
+import ErrorEx from './modules/Error/ErrorEX';
 import Footer from './modules/Footer/Footer';
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
     if(st1 === false && st2 === false && st3 === false) setSt1(state1);
     if(st1 === true && state1 === false) setSt1(false);
     if(st1 === true && st2 === false && st3 === false) return;
-    if(st1 === false && (st2 === true || st3 === true)) setSt1(state1); setSt2(false); setSt3(false);
+    if(st1 === false && (st2 === true || st3 === true)) setSt1(state1); setSt2(false); setSt3(false); setError(false);
   }
 
   const handleClick2 = state2 => {
@@ -60,11 +61,12 @@ function App() {
       <>
         <Nav />
         <PreCalculator handleClick1={handleClick1} handleClick2={handleClick2} handleClick3={handleClick3}/>
-        {error && st && <Error />}
+        {error && st && !st2 && <Error />}
+        {error && st && st2 && <ErrorEx />}
         {st1 && !st2 && !st3 && <Calculator submitSearch={onSubmit} passState={pState} pError={pError} handleClick1={handleClick1}/>}
-        {!st && <ShowData neto={neto}/>}
-        {!st1 && st2 && !st3 && <Extras handleClick2={handleClick2}/>}
-        {!st1 && !st2 && st3 && <SAC handleClick3={handleClick3}/>}
+        {!st && <ShowData neto={neto} />}
+        {!st1 && st2 && !st3 && <Extras handleClick2={handleClick2} pError={pError}/>}
+        {!st1 && !st2 && st3 && <SAC handleClick3={handleClick3} pError={pError}/>}
         <Footer />
       </>
     </div>
