@@ -25,6 +25,8 @@ const Checker = () => {
         console.log('El estado se ha actualizado:', netoF);
       }, [netoF]);
 
+    useEffect(()=>{}, [status]);
+
     var neto = {};
     const os = "", extras50 = "", extras100 = "", feriados = "", vacaciones = "", adEmpresa = "", km = "", AG = true;
     const data = {category, month, ant, jornada, os, extras50, extras100, feriados, vacaciones, adEmpresa, km, AG}
@@ -38,7 +40,7 @@ const Checker = () => {
         neto = Math(data);
         setNetoF(neto);
         //console.log(netoF)
-        //setState(true);
+        setState(true);
         if(neto.TOTAL <= base) setStatus(true); else setStatus(false);
         console.log(status)
     }
@@ -51,6 +53,12 @@ const Checker = () => {
         setAnt("");
         setJornada("");
         if(data === "" || data === {} || data === undefined) return;
+    }
+
+    const handleReturn = () => {
+        setStatus(false);
+        setState(false);
+        handleErrase();
     }
 
     return(
@@ -309,20 +317,25 @@ const Checker = () => {
                             <button className="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
                         </div>
                     </div>}
-                    {!state && <div className="Checker-Result">
+                    {state && <div className="Checker-Result">
                         {status && <div className="Checker-True">
                                 <div className="True" ref={thisRef}>
-                                    <div className="neto">
-                                        <h1 className="neto">Tu sueldo estaría bien liquidado</h1>
-                                        <p>Sí querés saber más al respecto, te invitamos a comunicarte con la <strong>Secretaría de Gremiales</strong> para despejar cualquiera duda que tengas y/o para conocer la composición de tu liquidación de sueldo.</p>
+                                    <div className="Neto">
+                                        <h1 className="Neto">Tu sueldo estaría bien liquidado</h1>
+                                        <p className="Modif">Sí querés saber más al respecto, te invitamos a comunicarte con la <strong>Secretaría de Gremiales</strong> para despejar cualquier duda que tengas o bien conocer la liquidación de sueldo en detalle.</p>
                                     </div>
                                 </div>
                             </div>}
+                        {!status && <div className="Checker-True">
+                            <div className="True" ref={thisRef}>
+                                <div className="NetoM">
+                                    <h1 className="NetoM">Tu sueldo estaría mal liquidado</h1>
+                                    <p className="Modif">Sí querés saber más al respecto, te invitamos a comunicarte con la <strong>Secretaría de Gremiales</strong> para despejar cualquier duda que tengas o bien conocer la liquidación de sueldo en detalle.</p>
+                                </div>
+                            </div>
+                        </div>}
                         <div className="d-grid gap-2">
-                            <button className="btn btn-success" type="submit" onClick={handleSubmit}>Simular</button>
-                        </div>
-                        <div className="d-grid gap-2">
-                            <button className="btn btn-danger" type="reset" onClick={handleErrase}>Borrar Calculadora</button>
+                            <button className="btn btn-primary" type="reset" onClick={handleReturn}>Volver al comparador</button>
                         </div>
                     </div>}
                 </div>

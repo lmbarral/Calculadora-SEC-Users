@@ -22,8 +22,8 @@
 }
 
 .btn {
-    margin-left: .6rem;
-    margin-right: .6rem;
+    margin-left: .6%;
+    margin-right: .6%;
 }
 
 .Checker-Form {
@@ -84,4 +84,26 @@ h6 {
 .Checker-True {
     margin-right: 2%;
     margin-left: 2%;
+}
+
+.Neto {
+    background-color: green;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+}
+
+.NetoM {
+    background-color: red;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+}
+
+.Modif {
+    color: white;
+    border: 1px solid white;
+    border-radius: .5rem;
+    padding: 1rem;
+    text-align: justify;
 }
