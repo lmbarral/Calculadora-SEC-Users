@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import './Checker.css';
 import Math from "../Math/Math";
+import { InlineWidget } from "react-calendly";
 
 const Checker = () => {
 
@@ -21,11 +22,9 @@ const Checker = () => {
         }
     }, []);
 
-    useEffect(() => {
-        console.log('El estado se ha actualizado:', netoF);
-      }, [netoF]);
+    useEffect(() => {}, [netoF]);
 
-    useEffect(()=>{}, [status]);
+    useEffect(() => {}, [status]);
 
     var neto = {};
     const os = "", extras50 = "", extras100 = "", feriados = "", vacaciones = "", adEmpresa = "", km = "", AG = true;
@@ -42,7 +41,7 @@ const Checker = () => {
         //console.log(netoF)
         setState(true);
         if(neto.TOTAL <= base) setStatus(true); else setStatus(false);
-        console.log(status)
+        //console.log(status)
     }
 
     const handleErrase = () => {
@@ -322,7 +321,16 @@ const Checker = () => {
                                 <div className="True" ref={thisRef}>
                                     <div className="Neto">
                                         <h1 className="Neto">Tu sueldo estaría bien liquidado</h1>
-                                        <p className="Modif">Sí querés saber más al respecto, te invitamos a comunicarte con la <strong>Secretaría de Gremiales</strong> para despejar cualquier duda que tengas o bien conocer la liquidación de sueldo en detalle.</p>
+                                        <p className="Modif">Sí querés saber más al respecto, te invitamos a comunicarte con la <strong>Secretaría de Gremiales</strong> para despejar cualquier duda que tengas o bien conocer la liquidación de sueldo en detalle. Podés agendar una reunión personal con los abogados utilizando el calendario que te dejamos a continuación.</p>
+                                    </div>
+                                    <div className="Calendly-Style">
+                                        <InlineWidget
+                                            url="https://calendly.com/gremiales-sec/asesoramiento-gremial-sec-caba"
+                                            styles={{
+                                                height: '800px',
+                                                color: '#004c97',
+                                            }}
+                                        />
                                     </div>
                                 </div>
                             </div>}
@@ -330,8 +338,16 @@ const Checker = () => {
                             <div className="True" ref={thisRef}>
                                 <div className="NetoM">
                                     <h1 className="NetoM">Tu sueldo estaría mal liquidado</h1>
-                                    <p className="Modif">Sí querés saber más al respecto, te invitamos a comunicarte con la <strong>Secretaría de Gremiales</strong> para despejar cualquier duda que tengas o bien conocer la liquidación de sueldo en detalle.</p>
+                                    <p className="Modif">Sí querés saber más al respecto, te invitamos a comunicarte con la <strong>Secretaría de Gremiales</strong> para despejar cualquier duda que tengas o bien conocer la liquidación de sueldo en detalle. Podés agendar una reunión personal con los abogados utilizando el calendario que te dejamos a continuación.</p>
                                 </div>
+                            </div>
+                            <div className="Calendly-Style">
+                                <InlineWidget
+                                    url="https://calendly.com/gremiales-sec/asesoramiento-gremial-sec-caba"
+                                    styles={{
+                                        height: '800px',
+                                    }}
+                                />
                             </div>
                         </div>}
                         <div className="d-grid gap-2">
