@@ -10,6 +10,7 @@ import Math from './modules/Math/Math';
 import Error from './modules/Error/Error';
 import ErrorEx from './modules/Error/ErrorEX';
 import Footer from './modules/Footer/Footer';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   const[neto, setNeto] = useState({});
@@ -59,6 +60,7 @@ function App() {
   return (
     <div className="App">
       <>
+        <SpeedInsights />
         <Nav />
         <PreCalculator handleClick1={handleClick1} handleClick2={handleClick2} handleClick3={handleClick3}/>
         {error && st && !st2 && <Error />}
