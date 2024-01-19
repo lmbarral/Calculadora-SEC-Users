@@ -421,8 +421,8 @@ const ShowData = ({neto}) => {
     const handleExport = () => {
         const pdf = new jsPDF("p", "mm", "a4");
         
-        if(name === "" || email === "") return;
-        setUser({name, email});
+        /*if(name === "" || email === "") return;
+        setUser({name, email});*/
 
         autoTable(pdf, {
             html: '#recibo',
@@ -447,8 +447,8 @@ const ShowData = ({neto}) => {
         pdf.save(`Recibo-SEC_${CATEGORÍAS[CAT]}_${month}`);
         //let pdfOutput = pdf.output();
         //console.log(pdfOutput)
-        setName("");
-        setEmail("");
+        //setName("");
+        //setEmail("");
     };
 
     return(
@@ -620,38 +620,7 @@ const ShowData = ({neto}) => {
                         </tfoot>
                     </table>
                 </div>
-                <div className="Selector">
-                    <div className="d-grid gap-2">
-                        <div className="Selector-style">
-                            <h3>¿Querés imprimir la simulación?</h3>
-                            <h2>¡Completá el formulario y nosotros te lo enviamos!</h2>
-                        </div>
-                        <form>
-                            <div className="mb-3">
-                                <label className="form-label">Nombre</label>
-                                <input
-                                    type="name"
-                                    className="form-control"
-                                    id="exampleInputPassword1"
-                                    required
-                                    onChange={(e) => { setName(e.target.value) }}
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Dirección de Correo Electrónico</label>
-                                <input
-                                    type={"email"}
-                                    className="form-control"
-                                    id="exampleInputEmail1"
-                                    required
-                                    onChange={(e) => { setEmail(e.target.value) }}
-                                />
-                                <div id="emailHelp" className="form-text">Jamás compartiremos este correo con terceros.</div>
-                            </div>
-                        </form>
-                        <button class="btn" className="btn-config" type="submit" onClick={handleExport}>Imprimir Simulación</button>
-                    </div>
-                </div>
+                <button class="btn" className="btn-config" type="submit" onClick={handleExport}>Imprimir Simulación</button>
             </div>
         </section>
     );

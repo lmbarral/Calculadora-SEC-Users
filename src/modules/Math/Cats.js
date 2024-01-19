@@ -53,7 +53,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 172701.76,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 172701.76,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 172701.76,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 172701.76,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 172701.76,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 172701.76,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 287967.32,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 287967.32,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 287967.32,
+            mes: 0.038,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 397394.90,
+            mes: 0.0
         }
     },
     "12": {
@@ -109,7 +149,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 173201.63,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 173201.63,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 173201.63,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 173201.63,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 173201.63,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 173201.63,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 288800.96,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 288800.96,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 288800.96,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 398545.32,
+            mes: 0.0
         }
     },
     "13": {
@@ -165,7 +245,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 174953.12,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 174953.12,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 174953.12,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 174953.12,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 174953.12,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 174953.12,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 291721.61,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 291721.61,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 291721.61,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 402575.83,
+            mes: 0.0
         }
     },
     "21": {
@@ -221,7 +341,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 174578.12,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 174578.12,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 174578.12,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 174578.12,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 174578.12,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 174578.12,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 291096.39,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 291096.39,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 291096.39,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 401713.02,
+            mes: 0.0
         }
     },
     "22": {
@@ -277,7 +437,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 175329.29,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 175329.29,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 175329.29,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 175329.29,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 175329.29,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 175329.29,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 292349.04,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 292349.04,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 292349.04,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 403441.68,
+            mes: 0.0
         }
     },
     "23": {
@@ -333,7 +533,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 176079.89,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 176079.89,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 176079.89,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 176079.89,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 176079.89,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 176079.89,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 293600.23,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 293600.23,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 293600.23,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 405168.32,
+            mes: 0.0
         }
     },
     "24": {
@@ -389,7 +629,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 178332.39,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 178332.39,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 178332.39,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 178332.39,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 178332.39,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 178332.39,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 297355.99,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 297355.99,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 297355.99,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 410351.27,
+            mes: 0.0
         }
     },
     "25": {
@@ -445,7 +725,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 180208.90,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 180208.90,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 180208.90,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 180208.90,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 180208.90,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 180208.90,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 300485.06,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 300485.06,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 300485.06,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 414669.38,
+            mes: 0.0
         }
     },
     "26": {
@@ -501,7 +821,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 182961.80,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 182961.80,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 182961.80,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 182961.80,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 182961.80,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 182961.80,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 305075.19,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 305075.19,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 305075.19,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 421003.76,
+            mes: 0.0
         }
     },
     "31": {
@@ -557,7 +917,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 175203.52,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 175203.52,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 175203.52,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 175203.52,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 175203.52,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 175203.52,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 292139.17,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 292139.17,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 292139.17,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 403152.05,
+            mes: 0.0
         }
     },
     "32": {
@@ -613,7 +1013,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 176079.83,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 176079.83,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 176079.83,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 176079.83,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 176079.83,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 176079.83,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 293600.23,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 293600.23,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 293600.23,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 405168.32,
+            mes: 0.0
         }
     },
     "33": {
@@ -669,7 +1109,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 177206.04,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 177206.04,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 177206.04,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 177206.04,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 177206.04,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 177206.04,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 295478.11,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 295478.11,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 295478.11,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 407759.79,
+            mes: 0.0
         }
     },
     "41": {
@@ -725,7 +1205,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 175203.52,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 175203.52,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 175203.52,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 175203.52,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 175203.52,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 175203.52,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 292139.17,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 292139.17,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 292139.17,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 403152.05,
+            mes: 0.0
         }
     },
     "42": {
@@ -781,7 +1301,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 176454.84,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 176454.84,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 176454.84,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 176454.84,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 176454.84,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 176454.84,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 294225.46,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 294225.46,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 294225.46,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 406031.13,
+            mes: 0.0
         }
     },
     "43": {
@@ -837,7 +1397,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 180584.33,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 180584.33,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 180584.33,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 180584.33,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 180584.33,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 180584.33,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 301111.02,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 301111.02,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 301111.02,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 415533.21,
+            mes: 0.0
         }
     },
     "51": {
@@ -893,7 +1493,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 176705.72,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 176705.72,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 176705.72,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 176705.72,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 176705.72,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 176705.72,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 294643.74,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 294643.74,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 294643.74,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 406608.36,
+            mes: 0.0
         }
     },
     "52": {
@@ -949,7 +1589,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 178957.76,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 178957.76,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 178957.76,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 178957.76,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 178957.76,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 178957.76,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 298398.77,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 298398.77,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 298398.77,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 411790.30,
+            mes: 0.0
         }
     },
     "61": {
@@ -1005,7 +1685,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 175203.52,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 175203.52,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 175203.52,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 175203.52,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 175203.52,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 175203.52,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 292139.17,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 292139.17,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 292139.17,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 403152.05,
+            mes: 0.0
         }
     },
     "62": {
@@ -1061,7 +1781,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 178958.23,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 178958.23,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 178958.23,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 178958.23,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 178958.23,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 178958.23,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 298399.50,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 298399.50,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 298399.50,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 411791.31,
+            mes: 0.0
         }
     },
     "63": {
@@ -1117,7 +1877,47 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 180208.90,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 180208.90,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 180208.90,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 180208.90,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 180208.90,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 180208.90,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 300485.06,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 300485.06,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 300485.06,
+            mes: 0.38,
+            sac: true
+        },
+        "202401": {
+            salarioBase: 414669.38,
+            mes: 0.0
         }
     },
     "64": {
@@ -1173,7 +1973,46 @@ const SALARIOS = {
         },
         "202304": {
             salarioBase: 182961.80,
-            mes: 0.00
+            mes: 0.00,
+            sfija: 12500
+        },
+        "202305": {
+            salarioBase: 182961.80,
+            mes: 0.065,
+            sfija: 12500
+        },
+        "202306": {
+            salarioBase: 182961.80,
+            mes: 0.065,
+            sac: true
+        },
+        "202307": {
+            salarioBase: 182961.80,
+            mes: 0.065
+        },
+        "202308": {
+            salarioBase: 182961.80,
+            mes: 0.075
+        },
+        "202309": {
+            salarioBase: 182961.80,
+            mes: 0.075
+        },
+        "202310": {
+            salarioBase: 305075.19,
+            mes: 0.11
+        },
+        "202311": {
+            salarioBase: 305075.19,
+            mes: 0.25
+        },
+        "202312": {
+            salarioBase: 305075.19,
+            mes: 0.38
+        },
+        "202401": {
+            salarioBase: 421003.76,
+            mes: 0.0
         }
     },
     //CALL CENTERS//

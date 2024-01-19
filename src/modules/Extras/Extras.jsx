@@ -67,9 +67,6 @@ const Extras = ({handleClick2, pError}) => {
     return(
         <section id="extras" ref={thisRef}>
             <div className="Extras-style">
-                <div className="PreExtras">
-                    <h2 className="Extras-Title">CALCULADORA DE HORAS EXTRAS</h2>
-                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="container text-center">
                         <div className="row">

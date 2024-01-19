@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import './App.css';
 import Nav from './modules/NavBar/Nav';
 import PreCalculator from './modules/PreCalculator/PreCalculator';
-import Checker from './modules/Checker/Checker';
 import Calculator from './modules/Calculator/Calculator';
 import ShowData from './modules/ShowData/ShowData';
 import Extras from './modules/Extras/Extras';
@@ -61,7 +60,6 @@ function App() {
     <div className="App">
       <>
         <Nav />
-        <Checker pError={pError}/>
         <PreCalculator handleClick1={handleClick1} handleClick2={handleClick2} handleClick3={handleClick3}/>
         {error && st && !st2 && <Error />}
         {error && st && st2 && <ErrorEx />}

@@ -68,7 +68,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         setMonth("");
         setAnt("");
         setJornada("");
-        if(data === "" || data === {} || data === undefined) return;
+        if(data === "" || data === undefined) return;
         setData("");
         setState(current => !current);
         passState(state);
@@ -86,9 +86,6 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     return(
         <section id="calculator" ref={thisRef}>
             <div className="Calculator">
-                <div className="Pre-Calculator-title">
-                    <h2>CALCULADORA DE SUELDO SEC</h2>
-                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="container text-center">
                         <div className="row">
@@ -178,19 +175,28 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 value={month}
                                 onChange={(e) => { setMonth(e.target.value); handleChange() }}>
                                     <option defaultValue={"0"}>Elegí una opción</option>
-                                    <option value="202304" >Abr.2023</option>
-                                    <option value="202303" >Mar.2023</option>
-                                    <option value="202302" >Feb.2023</option>
-                                    <option value="202301" >Ene.2023</option>
-                                    <option value="202212" >Dic.2022</option>
-                                    <option value="202211">Nov.2022</option>
-                                    <option value="202210" >Oct.2022</option>
-                                    <option value="202209" >Sep.2022</option>
-                                    <option value="202208" >Ago.2022</option>
-                                    <option value="202207" >Jul.2022</option>
-                                    <option value="202206" >Jun.2022</option>
-                                    <option value="202205" >May.2022</option>
-                                    <option value="202204" >Abr.2022</option>
+                                    <option value="202401" >Enero 2024</option>
+                                    <option value="202312" >Diciembre 2023</option>
+                                    <option value="202311" >Noviembre 2023</option>
+                                    <option value="202310" >Octubre 2023</option>
+                                    <option value="202309" >Septiembre 2023</option>
+                                    <option value="202308" >Agosto 2023</option>
+                                    <option value="202307" >Julio 2023</option>
+                                    <option value="202306" >Junio 2023</option>
+                                    <option value="202305" >Mayo 2023</option>
+                                    <option value="202304" >Abril 2023</option>
+                                    <option value="202303" >Marzo 2023</option>
+                                    <option value="202302" >Febrero 2023</option>
+                                    <option value="202301" >Enero 2023</option>
+                                    <option value="202212" >Diciembre 2022</option>
+                                    <option value="202211">Noviembre 2022</option>
+                                    <option value="202210" >Octubre 2022</option>
+                                    <option value="202209" >Septiembre 2022</option>
+                                    <option value="202208" >Agosto 2022</option>
+                                    <option value="202207" >Julio 2022</option>
+                                    <option value="202206" >Junio 2022</option>
+                                    <option value="202205" >Mayo 2022</option>
+                                    <option value="202204" >Abril 2022</option>
                                 </select>
                             </div>
                             <div className="col">
