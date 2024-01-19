@@ -620,7 +620,7 @@ const ShowData = ({neto}) => {
                         </tfoot>
                     </table>
                 </div>
-                <button class="btn" className="btn-config" type="submit" onClick={handleExport}>Imprimir Simulación</button>
+                <button class="btn" className="btn-config" type="submit" onClick={handleExport}>Descargar Simulación</button>
             </div>
         </section>
     );

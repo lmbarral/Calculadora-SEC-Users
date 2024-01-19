@@ -21,3 +21,43 @@
     margin-right: 1rem;
     padding: 1rem;
 }
+
+@media Screen and (max-width: 833px) {
+    .ShowData_Style {
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 1rem;
+    }
+
+    .accordion-button {
+        font-size: 1rem;
+        color: #ffffff;
+        height: 100px;
+    }
+    
+    .accordion-button[aria-expanded = "true"] {
+        font-size: 1rem;
+        color: #ffffff;
+    }
+}
+
+@media Screen and (max-width: 530px) {
+    .ShowData_Style {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 1rem;
+    }
+}
+
+@media Screen and (max-width: 476px) {
+    .accordion-button {
+        font-size: 1rem;
+        color: #ffffff;
+        height: 110px;
+    }
+    
+    .accordion-button[aria-expanded = "true"] {
+        font-size: 1rem;
+        color: #ffffff;
+    }
+}

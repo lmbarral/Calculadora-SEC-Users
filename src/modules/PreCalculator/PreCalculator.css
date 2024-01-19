@@ -23,6 +23,7 @@
 
 .Selector {
     display: inline-flex;
+    max-width: 100%;
 }
 
 .btn-config {
@@ -140,6 +141,14 @@
         margin: .5rem;
         font-size: medium;
         text-align: center;
+    }
+
+    .btn-config {
+        background-color: #004c97;
+        color: whitesmoke;
+        border: 0;
+        border-radius: .5rem;
+        padding: .5rem;
     }
 }
 
