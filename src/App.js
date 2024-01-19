@@ -11,6 +11,7 @@ import Error from './modules/Error/Error';
 import ErrorEx from './modules/Error/ErrorEX';
 import Footer from './modules/Footer/Footer';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const[neto, setNeto] = useState({});
@@ -61,6 +62,7 @@ function App() {
     <div className="App">
       <>
         <SpeedInsights />
+        <Analytics />
         <Nav />
         <PreCalculator handleClick1={handleClick1} handleClick2={handleClick2} handleClick3={handleClick3}/>
         {error && st && !st2 && <Error />}
