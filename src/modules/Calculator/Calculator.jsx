@@ -19,6 +19,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     const [data, setData] = useState({});
     const [state, setState] = useState(false);
     const [error, setError] = useState(true);
+    const [check, setCheck] = useState("");
 
     const thisRef = useRef();
 
@@ -43,7 +44,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         }
         setError(false);
         pError(error);
-        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa, km});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa, km, check});
         //console.log(data);
         submitSearch(data);
         if(state === true) return;
@@ -52,7 +53,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
     }
 
     const handleChange = () => {
-        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa, km});
+        setData({category, month, ant, jornada, os, extras50, extras100, base, feriados, vacaciones, adEmpresa, km, check});
     }
 
     const handleErrase = () => {
@@ -63,6 +64,7 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
         setVacaciones("");
         setAdEmpresa("");
         setKm("");
+        setCheck("");
         if(category === "" || month === "" || ant === "" || jornada === "") return;
         setCategory("");
         setMonth("");
@@ -438,6 +440,21 @@ const Calculator = ({submitSearch, passState, pError, handleClick1}) => {
                                 placeholder="Ingresá la cantidad de Km (Opcional)"
                                 onChange={(e) => { setKm(e.target.value); handleChange() }}></input>
                             </div>
+                        </div>
+                        <div class="row col">
+                            <h4>Calcular SAC</h4>
+                                <select
+                                className="form-select text-center"
+                                type="text"
+                                name="calculoSAC"
+                                required
+                                //autoFocus
+                                value={check}
+                                onChange={(e) => { setCheck(e.target.value); handleChange() }}>
+                                    <option defaultValue={""}>Elegí una opción</option>
+                                    <option value={"true"}>Sí</option>
+                                    <option value={"false"}>No</option>
+                                </select>
                         </div>
                     </div>
                     <div className="d-grid gap-2">

@@ -23,12 +23,13 @@ const Math = (form) => {
     const vacaciones = form.vacaciones;
     const adEmpresa = form.adEmpresa;
     const km = form.km;
+    const check = form.check;
 
     const resultados = ({params}) => {
 
         const {sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM, km, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, ACU21KM100, ACU9KM100, FIJAKM100, PBASE100} = params || 0;
 
-        var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0, RACU21 = 0, RACU9 = 0, RFIJA = 0, RACU21KM = 0, RACU9KM = 0, RFIJAKM = 0, RKM = 0, RACU21KM100 = 0, RFIJAKM100 = 0, RACU9KM100 = 0, BASEKM = 0, TUR = 0, KMM100 = 0, KMP100 = 0;
+        var AUM = 0, ANT = 0, JOR = 0, JUB = 0, DOS = 0, L19032 = 0, ART0 = 0, AGUI = 0, FAECYS = 0, EX50 = 0, EX100 = 0, TOTAL = 0, SUM = 0, RES = 0, PRES = 0, FER = 0, VAC = 0, NDOS = 0, NFAECYS = 0, NART0 = 0, NRES = 0, RACU21 = 0, RACU9 = 0, RFIJA = 0, RACU21KM = 0, RACU9KM = 0, RFIJAKM = 0, RKM = 0, RACU21KM100 = 0, RFIJAKM100 = 0, RACU9KM100 = 0, BASEKM = 0, TUR = 0, KMM100 = 0, KMP100 = 0, CHECK = 0;
 
         /*INICIO HABERES*/
         /*REMUNERATIVO*/
@@ -64,7 +65,7 @@ const Math = (form) => {
         RKM = RACU21KM + RACU9KM + RFIJAKM + RACU21KM100 + RFIJAKM100 + RACU9KM100; 
         /*TOTALES PARCIALES*/
         SUM = JOR + FER + ANT + VAC + PRES + EX50 + EX100 + Number(adEmpresaM);
-        if(agui === false) AGUI = 0; else AGUI = SUM/2;
+        if(agui === false || check === "false") {AGUI = 0; CHECK = false;} else {AGUI = SUM/2; CHECK = true;};
         /*NO REMUNERATIVO*/
         AUM = JOR * m;
         TUR = RACU21 + RFIJA + RACU9 + Number(RKM);
@@ -80,16 +81,16 @@ const Math = (form) => {
         FAECYS /*(ART1)*/ = (SUM + AGUI) * 0.005;
         RES = JUB + L19032 + DOS + OSECAC + ART0 + FAECYS;
         /*NO REMUNERATIVAS*/
-        NDOS = AUM * os;
-        NART0 = AUM * 0.02;
-        NFAECYS = AUM *0.005;
+        NDOS = (AUM + AUM*0.0833 + AUM*ant) * os;
+        NART0 = (AUM + AUM*0.0833 + AUM*ant) * 0.02;
+        NFAECYS = (AUM + AUM*0.0833 + AUM*ant) * 0.005;
         NRES = NDOS + NART0 + NFAECYS
         /*FIN DEDUCCIONES*/
         
         /*TOTAL*/
-        TOTAL = SUM + AGUI + AUM + TUR - RES - NRES;
+        TOTAL = SUM + AGUI + AUM + (AUM * 0.0833) + (AUM*ant) + TUR - RES - NRES;
 
-        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, RACU21, RFIJA, RACU9, RACU21KM, RFIJAKM, RACU9KM, RKM, km, BASEKM, TUR, ACU21KM100, FIJAKM100, ACU9KM100, RACU21KM100, RFIJAKM100, RACU9KM100, KMM100, KMP100};
+        return {AUM, ANT, JOR, JUB, DOS, OSECAC, L19032, ART0, AGUI, FAECYS, EX50, EX100, TOTAL, SUM, RES, PRES, FER, VAC, NDOS, NFAECYS, NART0, NRES, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, category, agui, month, adEmpresaM, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, RACU21, RFIJA, RACU9, RACU21KM, RFIJAKM, RACU9KM, RKM, km, BASEKM, TUR, ACU21KM100, FIJAKM100, ACU9KM100, RACU21KM100, RFIJAKM100, RACU9KM100, KMM100, KMP100, CHECK};
     }
 
     if(!Number(base)){ sBase = SALS[category][month].salarioBase} else { sBase = Number(base)};
@@ -113,7 +114,7 @@ const Math = (form) => {
         FIJAKM100 = ADS[category]["p100"][month].fija
         PBASE100 = ADS[category]["p100"][month].pBase
     }
-    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, agui, month, adEmpresaM, km, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, ACU21KM100, ACU9KM100, FIJAKM100, PBASE100}
+    params = {category, sBase, ant, jornada, os, extras50, extras100, m, feriadosM, vacacionesM, agui, month, adEmpresaM, km, ACU21, ACU9, FIJA, ACU21KM, ACU9KM, FIJAKM, pBase, ACU21KM100, ACU9KM100, FIJAKM100, PBASE100, check}
     if(!params || params === undefined) return;
     neto = resultados({params});
     if(!neto || neto === undefined) return;

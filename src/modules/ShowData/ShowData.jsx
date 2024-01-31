@@ -80,6 +80,7 @@ const ShowData = ({neto}) => {
     const RACU9KM100 = neto.RACU9KM100 || false;
     const kmm100 = neto.KMM100 || false;
     const kmp100 = neto.KMP100 || false;
+    const check = neto.CHECK || false;
     
     const antFixed = (ant*100).toFixed(0);
     
@@ -151,7 +152,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Antigüedad</th>
                     <td>{antFixed}%</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(ANT)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(ANT)}</td>
                     <td>-</td>
                     <td>-</td>
             </tr>
@@ -164,7 +165,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Aguinaldo (SAC)</th>
                     <td>-</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AGUI)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(AGUI)}</td>
                     <td>-</td>
                     <td>-</td>
             </tr>
@@ -177,7 +178,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Adicional Empresa</th>
                     <td>-</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(adEmpresaM)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(adEmpresaM)}</td>
                     <td>-</td>
                     <td>-</td>
             </tr>
@@ -190,7 +191,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Feriados</th>
                     <td>{fer}</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(FER)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(FER)}</td>
                     <td>-</td>
                     <td>-</td>
             </tr>
@@ -203,7 +204,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Horas Extras al 50%</th>
                     <td>{extras50}</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(EX50)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(EX50)}</td>
                     <td>-</td>
                     <td>-</td>
             </tr>
@@ -216,7 +217,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Horas Extras al 100%</th>
                     <td>{extras100}</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(EX100)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(EX100)}</td>
                     <td>-</td>
                     <td>-</td>
             </tr>
@@ -229,7 +230,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Vacaciones</th>
                     <td>{vac}</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(VAC)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(VAC)}</td>
                     <td>-</td>
                     <td>-</td>
             </tr>
@@ -243,7 +244,33 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Aumento Acuerdo</th>
                     <td>{m*100}%</td>
                     <td>-</td>
-                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM)}</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(AUM)}</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACUERDOPRES = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Presentismo Aumento Acuerdo</th>
+                    <td>8,33%</td>
+                    <td>-</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format((AUM*0.0833) + (AUM*antFixed/100))}</td>
+                    <td>-</td>
+            </tr>
+        );
+    }
+
+    const ACUERDOANT = () => {
+
+        return(
+            <tr>
+                <th scope="row" className="Col-left">Antigüedad Aumento Acuerdo</th>
+                    <td>{antFixed}%</td>
+                    <td>-</td>
+                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(AUM*antFixed/100)}</td>
                     <td>-</td>
             </tr>
         );
@@ -256,7 +283,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Acuerdo No Rem. 21%</th>
                 <td>{ACU21 * 100}%</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU21)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RACU21)}</td>
                 <td>-</td>
             </tr>
         );
@@ -269,7 +296,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Acuerdo No Rem. 9%</th>
                 <td>{ACU9 * 100}%</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU9)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RACU9)}</td>
                 <td>-</td>
             </tr>
         );
@@ -282,7 +309,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Suma Fija Acuerdo</th>
                 <td>-</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RFIJA)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RFIJA)}</td>
                 <td>-</td>
             </tr>
         );
@@ -294,7 +321,7 @@ const ShowData = ({neto}) => {
             <tr>
                 <th scope="row" className="Col-left">Base Adicional KM</th>
                 <td>{kmm100} kms</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(BASEKM)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(BASEKM)}</td>
                 <td>-</td>
                 <td>-</td>
             </tr>
@@ -308,7 +335,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Acuerdo No Rem. 21% Adicional KM (Hasta 100 Km)</th>
                 <td>{ACU21KM * 100}%</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU21KM)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RACU21KM)}</td>
                 <td>-</td>
             </tr>
         );
@@ -321,7 +348,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Acuerdo No Rem. 9% Adicional KM (Hasta 100 Km)</th>
                 <td>{ACU9KM * 100}%</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU9KM)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RACU9KM)}</td>
                 <td>-</td>
             </tr>
         );
@@ -334,7 +361,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Suma Fija Acuerdo Adicional KM (Hasta 100 Km)</th>
                 <td>{kmm100} kms</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RFIJAKM)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RFIJAKM)}</td>
                 <td>-</td>
             </tr>
         );
@@ -347,7 +374,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Acuerdo No Rem. 21% Adicional KM (Más de 100 Km)</th>
                 <td>{ACU21KM * 100}%</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU21KM100)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RACU21KM100)}</td>
                 <td>-</td>
             </tr>
         );
@@ -360,7 +387,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Acuerdo No Rem. 9% Adicional KM (Más de 100 Km)</th>
                 <td>{kmp100} kms</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RACU9KM100)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RACU9KM100)}</td>
                 <td>-</td>
             </tr>
         );
@@ -373,7 +400,7 @@ const ShowData = ({neto}) => {
                 <th scope="row" className="Col-left">Suma Fija Acuerdo Adicional KM (Más de 100 Km)</th>
                 <td>{kmp100} kms</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RFIJAKM100)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RFIJAKM100)}</td>
                 <td>-</td>
             </tr>
         );
@@ -387,7 +414,7 @@ const ShowData = ({neto}) => {
                 <td>3%</td>
                 <td>-</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NDOS)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(NDOS)}</td>
             </tr>
         );
     }
@@ -400,7 +427,7 @@ const ShowData = ({neto}) => {
                 <td>2%</td>
                 <td>-</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NART0)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(NART0)}</td>
             </tr>
         );
     }
@@ -413,7 +440,7 @@ const ShowData = ({neto}) => {
                 <td>0,5%</td>
                 <td>-</td>
                 <td>-</td>
-                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(NFAECYS)}</td>
+                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(NFAECYS)}</td>
             </tr>
         );
     }
@@ -456,7 +483,7 @@ const ShowData = ({neto}) => {
             <div className="ShowData_Style">
                 <div className="Recibo" ref={thisRef}>
                     <div className="neto">
-                        <h1 className="neto">Total: ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(TOTAL)}</h1>
+                        <h1 className="neto">Total: ${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}, {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2}).format(TOTAL)}</h1>
                     </div>
                 </div>
                 <div className="table-responsive" ref={componentRef} >
@@ -483,7 +510,7 @@ const ShowData = ({neto}) => {
                             <tr>
                                 <th scope="row" className="Col-left">Sueldo Base</th>
                                     <td>-</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(JOR)}</td>
+                                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(JOR)}</td>
                                     <td>-</td>
                                     <td>-</td>
                             </tr>
@@ -500,7 +527,7 @@ const ShowData = ({neto}) => {
                                 {extras100 && <EXTRAS100 />}
                             </>
                             <>
-                                {agui && <SAC />}
+                                {check && <SAC />}
                             </>
                             <>
                                 {adEmpresaM && <ADEMPRESA />}
@@ -538,7 +565,7 @@ const ShowData = ({neto}) => {
                             <tr>
                                 <th scope="row" className="Col-left">Presentismo</th>
                                     <td>8,33%</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(PRES)}</td>
+                                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(PRES)}</td>
                                     <td>-</td>
                                     <td>-</td>
                             </tr>
@@ -548,47 +575,53 @@ const ShowData = ({neto}) => {
                             <>
                                 {AUM && <ACUERDO />}
                             </>
+                            <>
+                                {AUM && <ACUERDOANT />}
+                            </>
+                            <>
+                                {AUM && <ACUERDOPRES />}
+                            </>
                             <tr>
                                 <th scope="row" className="Col-left">Jubilación</th>
                                     <td>11%</td>
                                     <td>-</td>
                                     <td>-</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(JUB)}</td>
+                                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(JUB)}</td>
                             </tr>
                             <tr>
                                 <th scope="row" className="Col-left">Ley 19.032</th>
                                     <td>3%</td>
                                     <td>-</td>
                                     <td>-</td>
-                                    <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(L19032)}</td>
+                                    <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(L19032)}</td>
                             </tr>
                             <tr>
                                 <th scope="row" className="Col-left">Aporte Obra Social</th>
                                 <td>{os * 100}%</td>
                                 <td>-</td>
                                 <td>-</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(DOS)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(DOS)}</td>
                             </tr>
                             <tr>
                                 <th scope="row" className="Col-left">Aporte Solidario O.S.E.C.A.C.</th>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(OSECAC)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(OSECAC)}</td>
                             </tr>
                             <tr>
                                 <th scope="row" className="Col-left">S.E.C.</th>
                                 <td>2%</td>
                                 <td>-</td>
                                 <td>-</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(ART0)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(ART0)}</td>
                             </tr>
                             <tr>
                                 <th scope="row" className="Col-left">F.A.E.C.Y.S.</th>
                                 <td>0,5%</td>
                                 <td>-</td>
                                 <td>-</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(FAECYS)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(FAECYS)}</td>
                             </tr>
                             <>
                                 {NDOS && <EXOS />}
@@ -602,13 +635,13 @@ const ShowData = ({neto}) => {
                             <tr className="Spacer"><th colSpan={5} key={"spacer"}></th></tr>
                             <tr>
                                 <th scope="row" colSpan={2}>Totales Parciales</th>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(SUM + AGUI)}</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(AUM + TUR)}</td>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(RES + NRES)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(SUM + AGUI)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(AUM + (AUM*0.0833) + TUR)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(RES + NRES)}</td>
                             </tr>
                             <tr>
                                 <th scope="row" colSpan={4}>Sueldo Neto</th>
-                                <td>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(TOTAL)}</td>
+                                <td>${new Intl.NumberFormat('es-ES', {format: 'currency', currency: 'ARS', currencyDisplay:'symbol', maximumFractionDigits: 2, minimumFractionDigits: 2}).format(TOTAL)}</td>
                             </tr>
                         </tbody>
                         <tfoot>

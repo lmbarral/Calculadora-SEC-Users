@@ -88,12 +88,12 @@ const SALARIOS = {
         },
         "202312": {
             salarioBase: 287967.32,
-            mes: 0.038,
+            mes: 0.38,
             sac: true
         },
         "202401": {
-            salarioBase: 397394.90,
-            mes: 0.0
+            salarioBase: 441108.34,
+            mes: 0.20
         }
     },
     "12": {
@@ -188,8 +188,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 398545.32,
-            mes: 0.0
+            salarioBase: 442385.31,
+            mes: 0.20
         }
     },
     "13": {
@@ -284,8 +284,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 402575.83,
-            mes: 0.0
+            salarioBase: 446859.17,
+            mes: 0.20
         }
     },
     "21": {
@@ -380,8 +380,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 401713.02,
-            mes: 0.0
+            salarioBase: 445901.45,
+            mes: 0.20
         }
     },
     "22": {
@@ -476,8 +476,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 403441.68,
-            mes: 0.0
+            salarioBase: 447820.26,
+            mes: 0.20
         }
     },
     "23": {
@@ -572,8 +572,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 405168.32,
-            mes: 0.0
+            salarioBase: 449736.84,
+            mes: 0.20
         }
     },
     "24": {
@@ -668,8 +668,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 410351.27,
-            mes: 0.0
+            salarioBase: 455489.91,
+            mes: 0.20
         }
     },
     "25": {
@@ -764,8 +764,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 414669.38,
-            mes: 0.0
+            salarioBase: 460283.01,
+            mes: 0.20
         }
     },
     "26": {
@@ -860,8 +860,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 421003.76,
-            mes: 0.0
+            salarioBase: 467314.17,
+            mes: 0.20
         }
     },
     "31": {
@@ -956,8 +956,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 403152.05,
-            mes: 0.0
+            salarioBase: 447498.76,
+            mes: 0.20
         }
     },
     "32": {
@@ -1052,8 +1052,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 405168.32,
-            mes: 0.0
+            salarioBase: 449736.84,
+            mes: 0.20
         }
     },
     "33": {
@@ -1148,8 +1148,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 407759.79,
-            mes: 0.0
+            salarioBase: 452613.37,
+            mes: 0.20
         }
     },
     "41": {
@@ -1244,8 +1244,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 403152.05,
-            mes: 0.0
+            salarioBase: 447498.78,
+            mes: 0.20
         }
     },
     "42": {
@@ -1340,8 +1340,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 406031.13,
-            mes: 0.0
+            salarioBase: 450694.55,
+            mes: 0.20
         }
     },
     "43": {
@@ -1436,8 +1436,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 415533.21,
-            mes: 0.0
+            salarioBase: 461241.86,
+            mes: 0.20
         }
     },
     "51": {
@@ -1532,8 +1532,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 406608.36,
-            mes: 0.0
+            salarioBase: 451335.28,
+            mes: 0.20
         }
     },
     "52": {
@@ -1628,8 +1628,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 411790.30,
-            mes: 0.0
+            salarioBase: 457087.23,
+            mes: 0.20
         }
     },
     "61": {
@@ -1724,8 +1724,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 403152.05,
-            mes: 0.0
+            salarioBase: 447498.76,
+            mes: 0.20
         }
     },
     "62": {
@@ -1820,8 +1820,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 411791.31,
-            mes: 0.0
+            salarioBase: 457088.35,
+            mes: 0.20
         }
     },
     "63": {
@@ -1916,8 +1916,8 @@ const SALARIOS = {
             sac: true
         },
         "202401": {
-            salarioBase: 414669.38,
-            mes: 0.0
+            salarioBase: 460283.01,
+            mes: 0.20
         }
     },
     "64": {
@@ -2011,8 +2011,8 @@ const SALARIOS = {
             mes: 0.38
         },
         "202401": {
-            salarioBase: 421003.76,
-            mes: 0.0
+            salarioBase: 467314.17,
+            mes: 0.20
         }
     },
     //CALL CENTERS//
